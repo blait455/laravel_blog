@@ -1,0 +1,740 @@
+#fadBlog .m-t-0{ margin-top: 0px;}
+#fadBlog .m-t-10{ margin-top: 10px;}
+#fadBlog .m-t-20{ margin-top: 20px;}
+#fadBlog .m-t-30{ margin-top: 30px;}
+#fadBlog .m-t-40{ margin-top: 40px;}
+#fadBlog .m-t-50{ margin-top: 50px;}
+#fadBlog .m-t-60{ margin-top: 60px;}
+#fadBlog .m-t-80{ margin-top: 80px;}
+
+#fadBlog .m-b-0{ margin-bottom: 0px;}
+#fadBlog .m-b-10{ margin-bottom: 10px;}
+#fadBlog .m-b-20{ margin-bottom: 20px;}
+#fadBlog .m-b-30{ margin-bottom: 30px;}
+#fadBlog .m-b-40{ margin-bottom: 40px;}
+#fadBlog .m-b-50{ margin-bottom: 50px;}
+#fadBlog .m-b-60{ margin-bottom: 60px;}
+#fadBlog .m-b-80{ margin-bottom: 80px;}
+
+#fadBlog .m-l-0{ margin-left: 0px;}
+#fadBlog .m-l-10{ margin-left: 10px;}
+#fadBlog .m-l-20{ margin-left: 20px;}
+#fadBlog .m-l-30{ margin-left: 30px;}
+#fadBlog .m-l-40{ margin-left: 40px;}
+#fadBlog .m-l-50{ margin-left: 50px;}
+#fadBlog .m-l-60{ margin-left: 60px;}
+#fadBlog .m-l-80{ margin-left: 80px;}
+
+#fadBlog .m-r-0{ margin-right: 0px;}
+#fadBlog .m-r-10{ margin-right: 10px;}
+#fadBlog .m-r-20{ margin-right: 20px;}
+#fadBlog .m-r-30{ margin-right: 30px;}
+#fadBlog .m-r-40{ margin-right: 40px;}
+#fadBlog .m-r-50{ margin-right: 50px;}
+#fadBlog .m-r-60{ margin-right: 60px;}
+#fadBlog .m-r-80{ margin-right: 80px;}
+
+#fadBlog .p-0{ padding: 0px;}
+#fadBlog .p-10{ padding: 10px;}
+#fadBlog .p-20{ padding: 20px;}
+#fadBlog .p-30{ padding: 30px;}
+#fadBlog .p-40{ padding: 40px;}
+#fadBlog .p-50{ padding: 50px;}
+
+#fadBlog .p-t-0{ padding-top: 0px;}
+#fadBlog .p-t-10{ padding-top: 10px;}
+#fadBlog .p-t-20{ padding-top: 20px;}
+#fadBlog .p-t-30{ padding-top: 30px;}
+#fadBlog .p-t-40{ padding-top: 40px;}
+#fadBlog .p-t-50{ padding-top: 50px;}
+#fadBlog .p-t-60{ padding-top: 60px;}
+#fadBlog .p-t-80{ padding-top: 80px;}
+
+#fadBlog .p-b-0{ padding-bottom: 0px;}
+#fadBlog .p-b-10{ padding-bottom: 10px;}
+#fadBlog .p-b-20{ padding-bottom: 20px;}
+#fadBlog .p-b-30{ padding-bottom: 30px;}
+#fadBlog .p-b-40{ padding-bottom: 40px;}
+#fadBlog .p-b-50{ padding-bottom: 50px;}
+#fadBlog .p-b-60{ padding-bottom: 60px;}
+#fadBlog .p-b-80{ padding-bottom: 80px;}
+
+#fadBlog .p-l-0{ padding-left: 0px;}
+#fadBlog .p-l-10{ padding-left: 10px;}
+#fadBlog .p-l-20{ padding-left: 20px;}
+#fadBlog .p-l-30{ padding-left: 30px;}
+#fadBlog .p-l-40{ padding-left: 40px;}
+#fadBlog .p-l-50{ padding-left: 50px;}
+#fadBlog .p-l-60{ padding-left: 60px;}
+#fadBlog .p-l-80{ padding-left: 80px;}
+
+#fadBlog .p-r-0{ padding-right: 0px;}
+#fadBlog .p-r-10{ padding-right: 10px;}
+#fadBlog .p-r-20{ padding-right: 20px;}
+#fadBlog .p-r-30{ padding-right: 30px;}
+#fadBlog .p-r-40{ padding-right: 40px;}
+#fadBlog .p-r-50{ padding-right: 50px;}
+#fadBlog .p-r-60{ padding-right: 60px;}
+#fadBlog .p-r-80{ padding-right: 80px;}
+
+#fadBlog .border-line-t{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;   
+}
+#fadBlog .border-line-b{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+#fadBlog .homepage-row {
+    padding: 40px 0 50px;
+}
+#fadBlog .fixed {
+    width: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    background: #000000!important;
+}
+#fadBlog .nav-bg.homepage-nav {
+    transition: background-color 400ms ease 0ms;
+    -webkit-transition: background-color 400ms ease 0ms;
+    -moz-transition: background-color 400ms ease 0ms;
+    -o-transition: background-color 400ms ease 0ms;
+}
+#fadBlog .top-bar .name a.logo {
+    width: auto;
+    height: 60px;
+    margin-right: 54px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+}
+#fadBlog .top-bar .name a.logo img {
+    margin: 20px 0 0 0;
+    vertical-align: top;
+}
+#fadBlog .nav-bg.homepage-nav {
+    background: transparent;
+}
+#fadBlog .top-bar-section {
+    float: left!important;
+    min-width: 89%;
+}
+#fadBlog .nav-bg {
+    background: transparent;
+    height: 85px;
+    line-height: 60px;
+    position: relative;
+}
+#fadBlog a.main_category{
+    min-height: 85px;
+}
+#fadBlog .bg{
+    /*background-image: url("../../images/banner-default.png");*/
+    background-image: url("http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg");
+    margin-top: -85px;
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    min-height: 320px;
+}
+#fadBlog .top-bar-section .has-dropdown > a::after {
+    border: 0;
+    width: 7px;
+    height: 5px;
+    top: 32px;
+    right: -10px;
+    margin-right: 18px;
+    background: url("../../images/little_arrow_7.png") no-repeat center center;
+    color: #ffffff;
+}
+#fadBlog .top-bar-section .has-dropdown > a:hover::after,
+#fadBlog .top-bar-section .has-dropdown > a:focus::after,
+#fadBlog .top-bar-section .has-dropdown > a:active::after {
+    border: 0;
+    width: 7px;
+    height: 5px;
+    top: 32px;
+    right: -10px;
+    margin-right: 18px;
+    background: url("../../images/little_arrow_dark.png") no-repeat center center;
+    color: #ffffff;
+}
+#fadBlog .top-bar-section ul li > a {
+    font-size: .875rem;
+    color: #ffffff;
+}
+#fadBlog .top-bar-section li:not(.has-form) a:hover:not(.button) {
+    background: #EFEFEF;
+    color: #4a4a4a;
+}
+#fadBlog .top-bar-section .right li:not(.has-form) a:hover:not(.button) {
+    background: transparent;
+    color: #4a4a4a;
+}
+#fadBlog .list-hr-ago {
+    float: none;
+    line-height: 24px;
+}
+#fadBlog .list-names{
+	color: #a8a8a8;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+#fadBlog .list-desc {
+    line-height: 22px;
+    height: auto;
+}
+#fadBlog .listing {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding: 20px 20px 20px;
+    position: relative;
+    line-height: normal;
+}
+#fadBlog .list-read-more{
+	color: #A8DC28;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 600;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+#fadBlog .plinks-list{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-top: 1px solid #EFEFEF;
+    font-weight: 600;
+}
+#fadBlog .plinks-list:last-child {
+    padding-bottom: 0px;
+}
+#fadBlog .popular-links h2 {
+    font-family: 'Asap',sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 27px;
+    margin-bottom: 30px;
+}
+/* Blog Footer Section */
+#fadBlog footer {
+    background: #313133;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 0;
+    box-shadow: none;
+}
+#fadBlog footer .fad-logo {
+    height: 70px;
+    text-align: left;
+    margin-top: 0px;
+    border-top: 0px;
+    box-shadow:none;
+}
+#fadBlog footer .fad-logo span {
+    width: 100px;
+    height: 46px;
+    margin-top: 0px;
+    text-indent: -9999px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url('../../images/FADblog_logo2.png') no-repeat!important;
+}
+#fadBlog footer .foo-other-links{
+    margin-bottom: 6px;
+}
+
+/* Article section */
+#fadBlog .fad-Article-banner .fad-Aban-text{
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+}
+#fadBlog .fad-Article-banner h1.banner-head {
+    color: #ffffff;
+}
+#fadBlog .listing-ads {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding: 0px;
+    position: relative;
+    line-height: normal;
+}
+#fadBlog .listing-ads-box{
+    padding: 15px 20px;
+}
+#fadBlog .green-color{
+    color: #A8DC28;
+}
+
+#fadBlog #related_article_slider .item {
+    width: 250px;
+    min-height: 248px;
+    padding: 20px;
+}
+#fadBlog #related_article_slider .list-img {
+    width: 248px;
+    height: 187px;
+    border-bottom: 1px solid #e4e4e4;
+}
+##fadBlog related_article_slider h3 {
+    margin: 4px 10px 15px;
+}
+#fadBlog #related_article_slider .list-img img {
+    max-width: 248px;
+    max-height: 187px;
+}
+#fadBlog #related_article_slider .owl-prev, #fadBlog #related_article_slider .owl-next {
+    height: 100%;
+}
+#fadBlog .social-icons a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    text-indent: -9999px;
+    margin: 0px 4px 0 0;
+}
+#fadBlog .social-icons a.facebook {
+    background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20version%3D%221.1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2245%22%20height%3D%2244%22%20viewBox%3D%220%200%2045%2044%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text/css%22%3E%0D%0A%09.st0%7Bfill%3A%23EFEFEF%3Bstroke%3A%23EFEFEF%3Bstroke-width%3A4%3B%7D%0D%0A%09.st1%7Bfill%3A%2335568C%3B%7D%0D%0A%3C/style%3E%3Ctitle%3Efacebook%3C/title%3E%3Cdesc%3ECreated%20with%20Sketch%20Beta.%3C/desc%3E%3Cg%20transform%3D%22translate%28-1008.000000%2C%20-77.000000%29%22%3E%3Cg%20transform%3D%22translate%28-7.000000%2C%205.000000%29%22%3E%3Cg%20transform%3D%22translate%281017.000000%2C%2073.000000%29%22%3E%3Cg%20transform%3D%22translate%280.654297%2C%200.984375%29%22%3E%3Ccircle%20class%3D%22st0%22%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2220%22/%3E%3Cpath%20class%3D%22st1%22%20d%3D%22M20%200C9%200%200%209%200%2020c0%2011%209%2020%2020%2020%2011%200%2020-9%2020-20C40%209%2031%200%2020%200L20%200%2020%200zM24.3%2020h-2.8v10h-4.2V20h-2v-3.5h2v-2.3c0-1.6%200.8-4.2%204.2-4.2l3.1%200v3.4h-2.2c-0.4%200-0.9%200.2-0.9%201v2.1h3.2L24.3%2020%2024.3%2020z%22/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E') no-repeat;
+    background-size: 24px 24px;
+}
+#fadBlog .social-icons a.twitter {
+    background: url(http://static.friday-ad.co.uk/bundles/fafrontend/images/twitter.svg) no-repeat;
+    background-size: 24px 24px;
+}
+
+#fadBlog .single-article-block .list-fixed-ht{
+    min-height: 195px;
+    height: 195px;
+    overflow: hidden;
+    display: block;
+}
+#fadBlog .single-article-block .list-article-img{
+    min-height: 270px;
+    overflow: hidden;
+    height: 270px;
+    display: block;
+}
+/* Responsive */
+@media only screen and (min-width:1025px) and (max-width:1151px){
+    #fadBlog .top-bar-section {
+        float: right!important;
+        min-width: 87.6%;
+    }
+    #fadBlog #top_bar_nav ul.right{
+        pointer-events: none;
+        padding: 15px 0px;
+        margin-right: 0px;
+    }
+    #fadBlog #top_category_menu a.main_category {
+        background: transparent;
+        width: auto;
+        left: 0px;
+    }
+    .top-bar-section .dropdown li, .top-bar-section .dropdown li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 30px!important;
+        word-wrap: break-word;
+        white-space: unset;
+        margin: 10px 0 11px 0;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:not(.button) {
+        background: transparent!important;
+        line-height: 60px;
+    }
+    #fadBlog .tablet-menu {
+        float: left;
+        margin-left: 0px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: -14px;
+    }
+    #fadBlog #top_bar_nav ul.right {
+        pointer-events: none;
+        padding: 0px;
+        margin-right: 0px;
+    }
+    #fadBlog #top_category_menu .main_category{
+        padding: 0 27px !important;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after,
+    #fadBlog .top-bar-section .has-dropdown > a:hover::after,
+    #fadBlog .top-bar-section .has-dropdown > a:focus::after, 
+    #fadBlog .top-bar-section .has-dropdown > a:active::after {
+        top: 30px;
+        margin-right: 10px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: 4px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown.hover > .dropdown, 
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        margin-top: -7px;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:hover:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:focus:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:active:not(.button) {
+        background: #EFEFEF!important;
+        color: #4a4a4a;
+    }
+    #fadBlog .detail-head {
+        margin: 7px 0;
+    }
+}
+@media only screen and (min-width:960px) and (max-width:1024px){
+    #fadBlog .top-bar-section {
+        float: left!important;
+        min-width: 87.6%;
+    }
+    #fadBlog #top_bar_nav ul.right{
+        pointer-events: none;
+        padding: 0px;
+        margin-right: 0px;
+    }
+    #fadBlog #top_category_menu a.main_category {
+        background: transparent;
+        width: auto;
+        left: 0px;
+    }
+    .top-bar-section .dropdown li, .top-bar-section .dropdown li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 30px!important;
+        word-wrap: break-word;
+        white-space: unset;
+        margin: 10px 0 11px 0;
+    }   
+    #fadBlog .top-bar-section li:not(.has-form) a:not(.button) {
+        background: transparent!important;
+        line-height: 60px;
+    }
+    #fadBlog .top-bar-section .dropdown li a {
+        line-height: 18px!important;
+    }
+    #fadBlog .tablet-menu {
+        float: left;
+        margin-left: 0px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: -14px;
+    }
+    #fadBlog #top_category_menu .main_category{
+        padding: 0 27px !important;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after,
+    #fadBlog .top-bar-section .has-dropdown > a:hover::after,
+    #fadBlog .top-bar-section .has-dropdown > a:focus::after, 
+    #fadBlog .top-bar-section .has-dropdown > a:active::after {
+        top: 30px;
+        margin-right: 10px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: 4px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown.hover > .dropdown, 
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        margin-top: -7px;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:hover:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:focus:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:active:not(.button) {
+        background: #EFEFEF!important;
+        color: #4a4a4a;
+    }
+    #fadBlog .detail-head {
+        margin: 7px 0;
+    }
+}
+@media only screen and (min-width:760px) and (max-width:959px){
+    #fadBlog .top-bar-section {
+        float: left!important;
+        min-width: 84%;
+    }
+    #fadBlog #top_bar_nav ul.right{
+        pointer-events: none;
+        padding: 15px 0px;
+        margin-right: 0px;
+    }
+    #fadBlog #top_category_menu a.main_category {
+        background: transparent;
+        width: 140px;
+        left: 180px;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 28px;
+    }
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        position: static!important;
+    }
+    #fadBlog #top_category_menu {
+        position: absolute;
+        top: 0;
+        background: transparent;
+        box-shadow: none;
+        z-index: 5;
+        width: 100%;
+        display: block;
+        padding: 0px;
+    }
+    #fadBlog #top_category_menu .main_category{
+        padding: 15px 15px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after,
+    #fadBlog .top-bar-section .has-dropdown > a:hover::after,
+    #fadBlog .top-bar-section .has-dropdown > a:focus::after, 
+    #fadBlog .top-bar-section .has-dropdown > a:active::after {
+        top: 30px;
+        margin-right: 10px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: 4px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown.hover > .dropdown, 
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        margin-top: -10px;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:hover:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:focus:not(.button),
+    #fadBlog .top-bar-section li:not(.has-form) a:active:not(.button) {
+        background: #EFEFEF!important;
+        color: #4a4a4a;
+    }
+    #fadBlog .detail-head {
+        margin: 7px 0;
+    }
+    #fadBlog h1 {
+        font-size: 32px;
+        font-weight: 400;
+        color: #313133;
+        line-height: 40px;
+    }
+}
+@media only screen and (min-width:641px) and (max-width: 759px){
+    
+     #fadBlog .top-bar-section {
+        float: left!important;
+        min-width: auto;
+    }
+    #fadBlog #top_bar_nav ul.right{
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        float: right !important;
+        padding: 15px 0px;
+    }
+    #fadBlog #top_category_menu a.main_category {
+        background: transparent;
+        width: 140px;
+        left: 140px;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 28px;
+    }
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        position: static!important;
+    }
+    #fadBlog #top_category_menu {
+        position: absolute;
+        top: 0;
+        background: transparent;
+        box-shadow: none;
+        z-index: 5;
+        width: auto;
+        display: block;
+        padding: 0px;
+    }
+    #fadBlog #top_category_menu .main_category{
+        padding: 15px 0px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after,
+    #fadBlog .top-bar-section .has-dropdown > a:hover::after {
+        top: 30px;
+    }
+    #fadBlog .top-bar-section .has-dropdown > a::after {
+        right: 4px!important;
+    }
+    #fadBlog .top-bar-section .has-dropdown.hover > .dropdown, 
+    #fadBlog .top-bar-section .has-dropdown.not-click:hover > .dropdown {
+        margin-top: -7px;
+    }
+    #fadBlog footer .medium-8 { 
+        width: 33%!important;
+    }
+     #fadBlog footer .foo-block {
+        margin-bottom: 0px;
+    }
+    #fadBlog footer .foo-block:last-child {
+        margin-bottom: 0px;
+    }
+    #fadBlog .top-bar-section .dropdown li,  #fadBlog .top-bar-section .dropdown li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 30px;
+        word-wrap: break-word;
+        white-space: unset;
+        margin: 8px 0;
+    }
+    #fadBlog #top_category_menu .row {
+        margin: 0 auto 1px;
+        padding: 0 0 10px;
+        max-width: none;
+        width: auto;
+        border-bottom: 1px solid #fff;
+        box-shadow: 0 1px 0 #e3e3e3;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:not(.button) {
+        background: transparent;
+        line-height: 28px;
+    }
+    #fadBlog .top-bar-section .dropdown li a {
+        font-size: 10px;
+        display: block;
+        color: #4a4a4a;
+        line-height: 18px !important;
+    }
+
+    #fadBlog .single-article-block .list-fixed-ht{
+        min-height: auto;
+        height: auto;
+        overflow: hidden;
+        display: block;
+    }
+    #fadBlog .single-article-block .list-article-img{
+        min-height: auto;
+        overflow: hidden;
+        height: auto;
+        display: block;
+    }
+}
+@media only screen and (min-width:320px) and (max-width: 640px){
+    .top-bar .toggle-topbar.menu-icon a span {
+        width: 25px;
+        height: 37px;
+        display: block;
+        background: url('../../images/Menu-icon-white.png') no-repeat;
+    }
+    .top-bar.expanded .toggle-topbar.menu-icon a span {
+        width: 25px;
+        height: 37px;
+        display: block;
+        background: url('../../images/Menu-icon-green.png') no-repeat;
+    }
+    
+    .top-bar .toggle-topbar.menu-icon a {
+        padding: 5px 10px;
+        height: auto;
+    }
+    #fadBlog .top-bar.expanded {
+        height: auto;
+        background-color: #313133;
+    }
+    #fadBlog .mobile-menu i{
+        margin-right: 10px;
+    }
+    #fadBlog .top-bar-section .login-menu li:not(.has-form) a:not(.button) {
+        background: #313133!important;
+        text-transform: capitalize;
+    }
+    #fadBlog .top-bar-section .login-menu li.placead-btn:not(.has-form) a.placead:not(.button) {
+        background: #31C5F2 !important;
+    }
+    #fadBlog .top-bar.expanded a.close-btn{
+        z-index: 999999;
+        position: absolute;
+        top: 0;
+        margin-top: -10px;
+    }
+    #fadBlog .top-bar.expanded .close-icon{
+        display: block!important;
+    }
+    #fadBlog .top-bar-section li:not(.has-form) a:hover:not(.button) {
+        color: #ffffff;
+    }
+    #fadBlog .top-bar .name a.logo img {
+        margin: 5px 0 0 0;
+        vertical-align: top;
+    }
+
+    #fadBlog .popular-links h3{
+        margin-top: 30px!important;
+    }
+    #fadBlog .top-bar .name h1, #fadBlog .top-bar .name a.logo {
+        margin: 0 5px!important;
+        width: 177px;
+        display: block;
+    }
+    #fadBlog .top-bar-section {
+        float: left !important;
+        min-width: 100%;
+        z-index: 999;
+        left: 0!important;
+    }
+    #fadBlog .top-bar .toggle-topbar.menu-icon {
+        margin-top: 0;
+        top: 8px;
+        right: 0!important;
+    }
+    #fadBlog .listing.arrow-hide::after {
+        display: none!important;
+    }
+    #fadBlog .listing .f-mob-img{
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+        margin-top: 10px;
+    }
+    #fadBlog .listing.arrow-hide .list-hr-ago {
+        display: block;
+    }
+    #fadBlog .mob-latest-ariticles h2{
+        font-size: 14px;
+        font-weight: 600;
+        color: #0e0e0e;
+        line-height: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #fadBlog .listing-ads-box.mob-ads-box {
+        padding: 0px;
+    }
+    #fadBlog .listing-ads-box.mob-ads-box .green-color {
+        color: #A8DC28;
+    }
+    #fadBlog .listing-ads-box.mob-ads-box h3{
+        font-size: 16px;
+        line-height: 22px;
+        padding-top: 10px;
+    }
+
+    #fadBlog .single-article-block .list-fixed-ht{
+        min-height: auto;
+        height: auto;
+        overflow: hidden;
+        display: block;
+    }
+    #fadBlog .single-article-block .list-article-img{
+        min-height: auto;
+        overflow: hidden;
+        height: auto;
+        display: block;
+    }
+
+    #fadBlog footer .small-24 { 
+        width: 100%!important;
+    }
+    #fadBlog footer .foo-block {
+        margin-bottom: 30px;
+    }
+    #fadBlog footer .foo-block:last-child {
+        margin-bottom: 0px;
+    }
+}
