@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
         $posts =[];
         $faker = Factory::create();
         // generate 10 dum
-        for($i = 1;$i <= 10; $i++)
+        for($i = 1;$i <= 100; $i++)
         {
             $date = date("Y-m-d H:i:s", strtotime("2017-7-18 08:00:00 +{$i} days"));
             $posts[] = [
@@ -27,6 +27,7 @@ class PostsTableSeeder extends Seeder
                 'excerpt'       => $faker->text(rand(200, 200)),
                 'body'          => $faker->paragraph(rand(8, 32), true),
                 'image'         => "http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg",
+                'image_alt'     => $faker->name,
                 'created_at'    => $date,
                 'updated_at'    => $date
             ];
