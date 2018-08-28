@@ -3,10 +3,10 @@
 
 
             {{-- Big Banner Add --}}
-            {{--@include('frontend.layout.includes._partials._bigFeatured')--}}
+            @include('frontend.layout.includes._partials._bigFeatured')
 
             {{-- Threee featured --}}
-            {{--@include('frontend.layout.includes._partials._threeBannerFeatured')--}}
+            @include('frontend.layout.includes._partials._threeBannerFeatured')
 
             <div class="row">
                 <div class="columns">

@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('frontend.layout.single');
+    return view('frontend.layout.main');
+});
+Route::get('/blog/show', function () {
+    return view('frontend.layout.article');
 });

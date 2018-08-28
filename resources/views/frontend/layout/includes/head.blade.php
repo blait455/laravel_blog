@@ -17,12 +17,12 @@
 
     <title>Friday-Ad - Blog site</title>
     <meta name="description" content="" />
-    <link rel="stylesheet" href="blog/css/compiled/main.css"/>
+    <link rel="stylesheet" href="{{ asset('blog/css/compiled/main.css') }}"/>
     <script src="js/main.js"></script>
 
-    <link rel="stylesheet" href="blog/css/compiled/home.css"/>
-    <link rel="stylesheet" href="blog/css/compiled/fa-main.css"/>
-    <link rel="stylesheet" href="blog/css/compiled/fa-blog.css"/>
+    <link rel="stylesheet" href="{{ asset('blog/css/compiled/home.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('blog/css/compiled/fa-main.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('blog/css/compiled/fa-blog.css') }}"/>
 
     <!-- Optimizely code - to be commented out when not in use -->
     <script src="//cdn.optimizely.com/js/1704710245.js" async></script>
