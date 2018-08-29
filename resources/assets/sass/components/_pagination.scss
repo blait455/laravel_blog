@@ -1,0 +1,94 @@
+$ssd-pagination-height: 2.4375rem;
+
+$ssd-pagination-link-bg: $primary-color;
+$ssd-pagination-link-color: #ffffff;
+
+$ssd-pagination-link-disabled-bg: #CCCCCC;
+$ssd-pagination-link-disabled-color: #999999;
+
+$ssd-pagination-label-bg: #AAAAAA;
+$ssd-pagination-label-color: #333333;
+
+.pagination-center {
+
+  text-align: center;
+
+  .select-pagination {
+
+    margin: 0 auto;
+
+  }
+
+}
+
+.select-pagination {
+
+  &:after {
+
+    content: "";
+    display: block;
+    clear: both;
+
+  }
+
+  &, span, a, select {
+
+    display: inline-block;
+
+  }
+
+  span, a, select {
+
+    float: left;
+
+  }
+
+  span, a {
+
+    background-color: $ssd-pagination-link-bg;
+    color: $ssd-pagination-link-color;
+
+    line-height: $ssd-pagination-height;
+    padding: 0 1.42rem;
+
+  }
+
+  span.disabled {
+
+    background-color: $ssd-pagination-link-disabled-bg;
+    color: $ssd-pagination-link-disabled-color;
+
+  }
+
+  select {
+
+    width: 7rem;
+    max-width: 7rem;
+
+  }
+
+  .pagination-page,
+  .pagination-of {
+
+    background-color: $ssd-pagination-label-bg;
+    color: $ssd-pagination-label-color;
+    display: none;
+
+  }
+
+}
+
+@include breakpoint(medium) {
+
+  .select-pagination {
+
+    .pagination-page,
+    .pagination-of {
+
+      display: inline-block;
+
+    }
+
+  }
+
+}
