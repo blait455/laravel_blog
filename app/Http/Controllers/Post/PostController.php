@@ -11,7 +11,9 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(3); 
-        return view('frontend.layout.main', compact('posts'));
+        //\DB::enableQueryLog();
+        $posts = Post::with('author')->latestFirst()->paginate(3);
+        return view('frontend.blog.index', compact('posts'));
+        //dd(\DB::getQueryLog());
     }
 }
