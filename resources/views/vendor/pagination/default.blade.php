@@ -5,7 +5,7 @@
         @if ($paginator->onFirstPage())
             {{--<li class="arrow pager-prev unavailable"><a href="">«</a></li>--}}
         @else
-            <li class="arrow pager-prev unavailable"><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+            <li class="arrow pager-prev"><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
         @endif
 
          {{--Pagination Elements--}}

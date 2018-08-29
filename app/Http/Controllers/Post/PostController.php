@@ -12,8 +12,13 @@ class PostController extends Controller
     public function index()
     {
         //\DB::enableQueryLog();
-        $posts = Post::with('author')->latestFirst()->paginate(3);
+        $posts = Post::with('author')->latestFirst()->published()->paginate(3);
         return view('frontend.blog.index', compact('posts'));
         //dd(\DB::getQueryLog());
+    }
+
+    public function show($id)
+    {
+        return view('frontend.blog.article');
     }
 }

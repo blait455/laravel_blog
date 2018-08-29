@@ -16,9 +16,11 @@ class PostsTableSeeder extends Seeder
 
         $posts =[];
         $faker = Factory::create();
+
         // generate 10 dum
         for($i = 1;$i <= 100; $i++)
         {
+            $dates = \Carbon\Carbon::create(2018, 6, 1, 18, 9);
             $date = date("Y-m-d H:i:s", strtotime("2017-7-18 08:00:00 +{$i} days"));
             $posts[] = [
                 'author_id'     => rand(1, 3),
@@ -29,7 +31,8 @@ class PostsTableSeeder extends Seeder
                 'image'         => "http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg",
                 'image_alt'     => $faker->name,
                 'created_at'    => $date,
-                'updated_at'    => $date
+                'updated_at'    => $date,
+                'published_at'  => rand(1, 0) == 0 ? null : $dates->addDays($i)
             ];
         }
         DB::table('posts')->insert($posts);

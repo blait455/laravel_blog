@@ -14,8 +14,11 @@
 //Route::get('/', function () {
 //    return view('frontend.layout.main');
 //});
-Route::get('/blog/show', function () {
-    return view('frontend.layout.article');
-});
+
 
 Route::get('/', 'Post\PostController@index')->name('home');
+
+Route::get('/blog/{post}', 'Post\PostController@show')->name('blog.show');
+
+
+
