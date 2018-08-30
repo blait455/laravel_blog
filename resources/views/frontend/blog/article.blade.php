@@ -27,8 +27,8 @@
 
         <div class="clearfix border-line-b"></div>
         <div class="clearfix p-b-10 m-b-10"></div>
-        {{ $post->image }}
-        <p>{{ $post->body }}</p>
+        <img src="{{ $post->image }}">
+        <p> {!! $post->body_html  !!} </p>
         <div class="clearfix p-b-10"></div>
         <div class="clearfix border-line-t"></div>
         <div class="small-12 medium-14 large-12 columns text-left p-l-0 m-b-40">

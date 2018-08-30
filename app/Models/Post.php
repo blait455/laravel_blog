@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 {
@@ -14,6 +15,27 @@ class Post extends Model
     public function getDateAttribute($value)
     {
        return is_null($this->published_at) ? '' : $this->published_at->diffForHumans();
+    }
+
+    /**
+     * Changing the article body view
+     * @param $value
+     * @return mixed
+     */
+    public function getBodyHtmlAttribute($value)
+    {
+        return $this->body ? Markdown::convertToHtml(e($this->body)) : null;
+    }
+
+
+    /**
+     * Changing the article excerpt view
+     * @param $value
+     * @return mixed
+     */
+    public function getExcerptHtmlAttribute($value)
+    {
+        return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : null;
     }
 
     //------------------------------- scope ------------------------------------------//

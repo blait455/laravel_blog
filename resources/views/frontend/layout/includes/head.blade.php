@@ -18,7 +18,7 @@
     <title>Friday-Ad - Blog site</title>
     <meta name="description" content="" />
     <link rel="stylesheet" href="{{ asset('blog/css/compiled/main.css') }}"/>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('blog/js/main.js') }}"></script>
 
     <link rel="stylesheet" href="{{ asset('blog/css/compiled/home.css') }}"/>
     <link rel="stylesheet" href="{{ asset('blog/css/compiled/fa-main.css') }}"/>

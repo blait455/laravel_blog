@@ -18,7 +18,7 @@
                                 </div>
                                 <h1 class="detail-head"><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h1>
                                 <div class="list-desc hide-for-small-only">
-                                    {{ $post->excerpt }}
+                                    {!! $post->excerpt_html !!}
                                 </div>
                                 <div class="list-read-more"><a href="{{ route('blog.show', $post->slug) }}">Read more</a></div>
                             </div>
