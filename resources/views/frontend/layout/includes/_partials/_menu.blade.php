@@ -29,10 +29,10 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Top Stories</strong></a>
-                                                            <a href="#">Editor's Picks</a>
-                                                            <a href="#">Trending This Week</a>
-                                                            <a href="#">Videos</a>
+                                                            <a href="#"><strong>Categories</strong></a>
+                                                            @foreach($categories as $category)
+                                                                <a href="{{ route('category', $category->id) }}">{{ $category->title }} | {{ $category->posts->count() }}</a>
+                                                            @endforeach
                                                         </div>
                                                         {{--<div class="large-4 medium-4 columns">--}}
                                                             {{--<a href="#"><strong>Home and DIY</strong></a>--}}
