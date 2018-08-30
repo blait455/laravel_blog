@@ -10,17 +10,24 @@ use App\Http\Controllers\Controller;
 
 class CategoryController extends BaseController
 {
-    public function index($id)
+    /**
+     * Showing all the blog based on the category
+     * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(Category $category)
     {
         //\DB::enableQueryLog();
+        $categoryName = $category->title;
         $categories = $this->categories;
 
-        $posts = Category::find($id)
-                            ->posts()
-                            ->latestFirst()
-                            ->published()
-                            ->paginate(3);
-        return view('frontend.blog.index', compact('posts', 'categories'));
+        $posts = $category->posts()
+                          ->with('author')
+                          ->latestFirst()
+                          ->published()
+                          ->paginate(3);
+        return view('frontend.blog.category', compact('posts', 'categories', 'categoryName'));
         //dd(\DB::getQueryLog());
     }
+
 }

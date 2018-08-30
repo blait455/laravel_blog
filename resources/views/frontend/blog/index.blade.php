@@ -1,6 +1,7 @@
 @extends('frontend.layout.main')
 
 @section('content')
+
     @each('frontend.blog.partials.blogs', $posts, 'post')
 
     {{--pagination--}}

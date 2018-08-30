@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <div class="clearfix">
         <div class="small-12 medium-14 large-12 columns text-left p-l-0">
             <div class="list-names">

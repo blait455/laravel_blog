@@ -11,8 +11,8 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('frontend.layout.main');
+//Route::get('/test', function () {
+//    return view('frontend.layout.category');
 //});
 
 
@@ -20,6 +20,7 @@ Route::get('/', 'Post\PostController@index')->name('home');
 
 Route::get('/blog/{post}', 'Post\PostController@show')->name('blog.show');
 Route::get('/blog/category/{category}', 'Category\CategoryController@index')->name('category');
+
 
 
 

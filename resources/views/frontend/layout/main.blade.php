@@ -9,5 +9,5 @@
 
             @yield('content')
 
-   {{-- footer --}}
+{{-- footer --}}
 @include('frontend.layout.includes.foot')

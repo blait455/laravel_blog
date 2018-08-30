@@ -9,3 +9,5 @@ TODO: Issue:1 CSS image is not dynamic
     min-height: 320px;
 }
 TODO: if image is optional
+
+TODO: do we need to show empty category page?? 18/6:20

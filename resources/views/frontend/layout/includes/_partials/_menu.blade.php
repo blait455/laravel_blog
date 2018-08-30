@@ -31,7 +31,7 @@
                                                         <div class="large-4 medium-4 columns">
                                                             <a href="#"><strong>Categories</strong></a>
                                                             @foreach($categories as $category)
-                                                                <a href="{{ route('category', $category->id) }}">{{ $category->title }} | {{ $category->posts->count() }}</a>
+                                                                <a href="{{ route('category', $category->slug) }}">{{ $category->title }} | {{ $category->posts->count() }}</a>
                                                             @endforeach
                                                         </div>
                                                         {{--<div class="large-4 medium-4 columns">--}}
