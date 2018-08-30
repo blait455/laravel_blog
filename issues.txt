@@ -1,0 +1,11 @@
+TODO: Issue:1 CSS image is not dynamic
+#fadBlog .bg{
+    /*background-image: url("../../images/banner-default.png");*/
+    background-image: url("http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg");
+    margin-top: -85px;
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    min-height: 320px;
+}
+TODO: if image is optional

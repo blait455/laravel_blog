@@ -17,8 +17,8 @@ class PostController extends Controller
         //dd(\DB::getQueryLog());
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
-        return view('frontend.blog.article');
+        return view('frontend.blog.article', compact('post'));
     }
 }

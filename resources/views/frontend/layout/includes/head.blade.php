@@ -36,7 +36,9 @@
     {{--header with nav--}}
     @include('frontend.layout.includes._partials._menu')
 
-    <section class="bg"></section>
+    {{--TODO: Issue:1--}}
+    <section class="bg">
+    </section>
 
     <section class="clearfix">
 <div>

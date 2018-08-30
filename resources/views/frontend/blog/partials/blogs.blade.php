@@ -13,14 +13,14 @@
                                         <strong>Guides Animals, Events, News</strong>
                                     </div>
                                     <span class="list-hr-ago">
-                                                {{ $post->date }} | {{ $post->author->name }}
-                                            </span>
+                                        {{ $post->date }} | {{ $post->author->name }}
+                                    </span>
                                 </div>
-                                <h1 class="detail-head">{{ $post->title }}</h1>
+                                <h1 class="detail-head"><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h1>
                                 <div class="list-desc hide-for-small-only">
                                     {{ $post->excerpt }}
                                 </div>
-                                <div class="list-read-more">Read more</div>
+                                <div class="list-read-more"><a href="{{ route('blog.show', $post->slug) }}">Read more</a></div>
                             </div>
                         </div>
                         <div class="small-24 medium-12 large-14 columns p-r-0 f-mob-img">

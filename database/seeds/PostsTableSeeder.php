@@ -24,7 +24,7 @@ class PostsTableSeeder extends Seeder
             $date = date("Y-m-d H:i:s", strtotime("2017-7-18 08:00:00 +{$i} days"));
             $posts[] = [
                 'author_id'     => rand(1, 3),
-                'title'         => $faker->sentence(rand(8, 12)),
+                'title'         => $faker->sentence(rand(4, 8)),
                 'slug'          => $faker->slug(),
                 'excerpt'       => $faker->text(rand(200, 200)),
                 'body'          => $faker->paragraph(rand(8, 32), true),
