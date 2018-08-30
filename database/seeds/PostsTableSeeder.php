@@ -12,7 +12,9 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('posts')->truncate();
+
 
         $posts =[];
         $faker = Factory::create();
@@ -32,9 +34,11 @@ class PostsTableSeeder extends Seeder
                 'image_alt'     => $faker->name,
                 'created_at'    => $date,
                 'updated_at'    => $date,
-                'published_at'  => rand(1, 0) == 0 ? null : $dates->addDays($i)
+                'published_at'  => rand(1, 0) == 0 ? null : $dates->addDays($i),
+                'category_id'   => rand(1, 7)
             ];
         }
         DB::table('posts')->insert($posts);
+
     }
 }

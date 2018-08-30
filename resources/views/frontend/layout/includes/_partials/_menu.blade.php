@@ -9,7 +9,10 @@
                             <ul class="title-area">
                                 <li class="name">
                                     <h1>
-                                        <a href="/" class="logo"><img src="images/FADblog_logo.svg" alt="Friday-Ad"></a>
+                                        <a href="/" class="logo">
+                                            {{--<img src="images/FADblog_logo.svg" alt="Friday-Ad">--}}
+                                            <img src="{{ URL::asset('blog/images/FADblog_logo.svg') }}">
+                                        </a>
                                     </h1>
                                 </li>
                                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -88,7 +91,7 @@
                                 </ul>
 
                                 <ul class="right hide-for-small-only">
-                                    <li><a title="" class="p-r-0"><img src="images/FAD.co.uk_logo.png"></a></li>
+                                    <li><a title="" class="p-r-0"><img src="{{ URL::asset('blog/images/FAD.co.uk_logo.png')}}"></a></li>
 
                                 </ul>
                             </section>
