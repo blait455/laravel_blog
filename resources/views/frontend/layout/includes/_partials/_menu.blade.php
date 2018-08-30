@@ -34,36 +34,36 @@
                                                             <a href="#">Trending This Week</a>
                                                             <a href="#">Videos</a>
                                                         </div>
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Home and DIY</strong></a>
-                                                            <a href="#">Buying and Selling</a>
-                                                            <a href="#">Gardening</a>
-                                                            <a href="#">How to Upcycling</a>
-                                                        </div>
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Work</strong></a>
-                                                            <a href="#">Job Seeker Advice</a>
-                                                            <a href="#">Employer Advice</a>
-                                                        </div>
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Motors</strong></a>
-                                                            <a href="#">Features</a>
-                                                            <a href="#">Guides and Advice</a>
-                                                            <a href="#">Classic Cars</a>
-                                                            <a href="#">Reviews</a>
-                                                            <a href="#">Dealer Advice</a>
-                                                        </div>
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Animals</strong></a>
-                                                            <a href="#">News</a>
-                                                            <a href="#">Care</a>
-                                                            <a href="#">Rehoming</a>
-                                                        </div>
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Bizarre</strong></a>
-                                                            <a href="#"><strong>Events</strong></a>
-                                                            <a href="#"><strong>Competitions</strong></a>
-                                                        </div>
+                                                        {{--<div class="large-4 medium-4 columns">--}}
+                                                            {{--<a href="#"><strong>Home and DIY</strong></a>--}}
+                                                            {{--<a href="#">Buying and Selling</a>--}}
+                                                            {{--<a href="#">Gardening</a>--}}
+                                                            {{--<a href="#">How to Upcycling</a>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="large-4 medium-4 columns">--}}
+                                                            {{--<a href="#"><strong>Work</strong></a>--}}
+                                                            {{--<a href="#">Job Seeker Advice</a>--}}
+                                                            {{--<a href="#">Employer Advice</a>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="large-4 medium-4 columns">--}}
+                                                            {{--<a href="#"><strong>Motors</strong></a>--}}
+                                                            {{--<a href="#">Features</a>--}}
+                                                            {{--<a href="#">Guides and Advice</a>--}}
+                                                            {{--<a href="#">Classic Cars</a>--}}
+                                                            {{--<a href="#">Reviews</a>--}}
+                                                            {{--<a href="#">Dealer Advice</a>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="large-4 medium-4 columns">--}}
+                                                            {{--<a href="#"><strong>Animals</strong></a>--}}
+                                                            {{--<a href="#">News</a>--}}
+                                                            {{--<a href="#">Care</a>--}}
+                                                            {{--<a href="#">Rehoming</a>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="large-4 medium-4 columns">--}}
+                                                            {{--<a href="#"><strong>Bizarre</strong></a>--}}
+                                                            {{--<a href="#"><strong>Events</strong></a>--}}
+                                                            {{--<a href="#"><strong>Competitions</strong></a>--}}
+                                                        {{--</div>--}}
                                                     </div>
                                                 </li>
                                             </ul>
@@ -76,20 +76,6 @@
                                     </script>
 
                                 </div>
-                                <ul class="show-for-small-only login-menu mobile-menu">
-                                    <li><a style="background: #4a4a4a !important;">MENU</a></li>
-                                    <li><a href="#">Top Stories</a></li>
-                                    <li><a href="#">Home and DIY</a></li>
-                                    <li><a href="#">Work</a></li>
-                                    <li><a href="#">Motors</a></li>
-                                    <li><a href="#">Animals</a></li>
-                                    <li><a href="#">Bizarre</a></li>
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="#">Competitions</a></li>
-                                    <li class="place-item-btn placead-btn"><a href="/paa/first_step" title="Place an ad" class="placead">Place an ad</a></li>
-                                    <li class="text-center"><a class=""><img src="images/FAD.co.uk_logo.png"></a></li>
-                                </ul>
-
                                 <ul class="right hide-for-small-only">
                                     <li><a title="" class="p-r-0"><img src="{{ URL::asset('blog/images/FAD.co.uk_logo.png')}}"></a></li>
 
