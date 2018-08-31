@@ -1,5 +1,9 @@
 @extends('frontend.layout.article')
 
+@section('titleHeader')
+    | {{ $post->title }}
+@endsection
+
 @section('blogHeader')
     {{ $post->title }}
 @endsection

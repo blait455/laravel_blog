@@ -15,7 +15,7 @@
     <meta name="twitter:description" content="META DESCRIPTION">
     <meta name="twitter:image" content="HEADER IMAGE">
 
-    <title>Friday-Ad - Blog site</title>
+    <title>Friday-Ad @yield('titleHeader')</title>
     <meta name="description" content="" />
     <link rel="stylesheet" href="{{ asset('blog/css/compiled/main.css') }}"/>
     <script src="{{ asset('blog/js/main.js') }}"></script>

@@ -1,5 +1,10 @@
 @extends('frontend.layout.category')
 
+{{--showing category name in the title--}}
+@section('titleHeader')
+    | {{ $categoryName }}
+@endsection
+
 @section('content')
     <section class="clearfix">
         <div class="single-article-block">
