@@ -1,8 +1,13 @@
 @extends('frontend.layout.main')
 
 @section('content')
-
-    @each('frontend.blog.partials.blogs', $posts, 'post')
+    <div class="row">
+        <div class="columns">
+            <div id="listingDiv" class="small-24 medium-24 large-24 columns p-0">
+                @each('frontend.blog.partials.posts', $posts, 'post')
+            </div>
+        </div>
+    </div>
 
     {{--pagination--}}
     @if($posts->hasPages())

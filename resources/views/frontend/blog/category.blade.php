@@ -12,9 +12,9 @@
                 <div class="columns">
                     <div id="listingDiv" class="small-24 medium-24 large-24 columns p-0">
 
-                            <h1 class="m-t-30 m-b-30">{{ $categoryName }}</h1>
+                        <h1 class="m-t-30 m-b-30">{{ $categoryName }}</h1>
 
-                        @each('frontend.blog.partials.categories', $posts, 'post')
+                        @each('frontend.blog.partials.posts', $posts, 'post')
 
                         {{--pagination--}}
                         @if($posts->hasPages())

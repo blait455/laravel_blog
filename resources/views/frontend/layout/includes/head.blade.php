@@ -37,7 +37,8 @@
     @include('frontend.layout.includes._partials._menu')
 
     {{--TODO: Issue:1--}}
-    <section class="bg">
+    <section class="bg" style="background-image: url('http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg')">
+        {{--<img src="http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg">--}}
     </section>
 
     <section class="clearfix">

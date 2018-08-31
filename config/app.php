@@ -137,6 +137,7 @@ return [
 
     'providers' => [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -193,6 +194,7 @@ return [
 
     'aliases' => [
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
