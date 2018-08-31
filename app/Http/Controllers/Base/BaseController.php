@@ -8,10 +8,5 @@ use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
 {
-    protected $categories;
-    public function __construct()
-    {
-        $this->categories = Category::allCategories();
-    }
 
 }

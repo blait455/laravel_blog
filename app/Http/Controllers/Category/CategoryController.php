@@ -19,14 +19,13 @@ class CategoryController extends BaseController
     {
         //\DB::enableQueryLog();
         $categoryName = $category->title;
-        $categories = $this->categories;
 
         $posts = $category->posts()
                           ->with('author')
                           ->latestFirst()
                           ->published()
                           ->paginate(3);
-        return view('frontend.blog.category', compact('posts', 'categories', 'categoryName'));
+        return view('frontend.blog.category', compact('posts', 'categoryName'));
         //dd(\DB::getQueryLog());
     }
 
