@@ -44,6 +44,11 @@ class Post extends Model
         return $query->orderBy('created_at', 'desc');
     }
 
+    public function scopePopular($query)
+    {
+        return $query->orderBy('view_count', 'desc');
+    }
+
     /**
      * Show only published posts
      * @param $query
