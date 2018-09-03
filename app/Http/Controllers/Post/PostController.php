@@ -21,6 +21,10 @@ class PostController extends BaseController
 
     public function show(Post $post)
     {
+        // view counter
+        $viewCount = $post->view_count + 1;
+        $post->update(['view_count' => $viewCount]);
+
         return view('frontend.blog.article', compact('post'));
     }
 }

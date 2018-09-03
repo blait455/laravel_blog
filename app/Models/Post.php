@@ -8,6 +8,8 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 {
+    protected $fillable = ['view_count'];
+
     protected $dates = ['published_at'];
     // TODO: load image 009 from user image directory, create an accessor or mutator
 
