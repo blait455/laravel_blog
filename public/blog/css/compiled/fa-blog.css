@@ -738,3 +738,17 @@
         margin-bottom: 0px;
     }
 }
+
+.error-parent-block{
+    display: table;
+    width: 100%!important;
+}
+.error-child-block{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 20px;
+}
+.error-parent-block h1, .error-parent-block h2 {
+    color: #ffffff;
+    opacity: 0.8;
+}
