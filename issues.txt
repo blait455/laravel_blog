@@ -13,3 +13,5 @@ TODO: if image is optional
 TODO: do we need to show empty category page?? 18/6:20
 
 TODO: block search by author Google from crawling them using robots.txt and noindex. https://www.youtube.com/watch?v=40hlRN0paks
+
+TODO: Using Gravatar to show user image

@@ -27,7 +27,6 @@ class Post extends Model
         return $this->body ? Markdown::convertToHtml(e($this->body)) : null;
     }
 
-
     /**
      * Changing the article excerpt view
      * @param $value
@@ -37,6 +36,7 @@ class Post extends Model
     {
         return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : null;
     }
+    //--------------------------------- end -------------------------------------------//
 
     //------------------------------- scope ------------------------------------------//
     public function scopeLatestFirst($query)
