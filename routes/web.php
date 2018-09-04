@@ -18,14 +18,17 @@
 
 Route::get('/', 'Post\PostController@index')->name('home');
 
-Route::get('/blog/{post}', 'Post\PostController@show')->name('blog.show');
-Route::get('/blog/category/{category}', 'Category\CategoryController@index')->name('category');
-Route::get('/blog/author/{author}', 'Author\AuthorController@index')->name('author');
-
+Route::prefix('blog')->group(function () {
+    Route::get('{post}', 'Post\PostController@show')->name('blog.show');
+    Route::get('category/{category}', 'Category\CategoryController@index')->name('category');
+    Route::get('author/{author}', 'Author\AuthorController@index')->name('author');
+});
 
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->group(function () {
+    Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');
+});
