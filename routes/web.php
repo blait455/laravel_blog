@@ -25,3 +25,7 @@ Route::get('/blog/author/{author}', 'Author\AuthorController@index')->name('auth
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -11,7 +11,7 @@
                                     <h1>
                                         <a href="/" class="logo">
                                             {{--<img src="images/FADblog_logo.svg" alt="Friday-Ad">--}}
-                                            <img src="{{ URL::asset('blog/images/FADblog_logo.svg') }}">
+                                            <img src="{{ URL::asset('frontend/images/FADblog_logo.svg') }}">
                                         </a>
                                     </h1>
                                 </li>
@@ -77,7 +77,7 @@
 
                                 </div>
                                 <ul class="right hide-for-small-only">
-                                    <li><a title="" class="p-r-0"><img src="{{ URL::asset('blog/images/FAD.co.uk_logo.png')}}"></a></li>
+                                    <li><a title="" class="p-r-0"><img src="{{ URL::asset('frontend/images/FAD.co.uk_logo.png')}}"></a></li>
 
                                 </ul>
                             </section>
