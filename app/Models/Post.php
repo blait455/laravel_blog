@@ -21,6 +21,26 @@ class Post extends Model
         return $this->created_at->format($format);
     }
 
+    /**
+     * Showing posts status in admin section based on date
+     * @return string
+     */
+    public function publicationLable()
+    {
+        if(!$this->published_at)
+        {
+            return '<span class="label label-warning">Draft</span>';
+        }
+        elseif ($this->published_at && $this->published_at->isFuture())
+        {
+            return '<span class="label label-info">Schedule</span>';
+        }
+        else {
+            return '<span class="label label-success">Published</span>';
+        }
+    }
+
+
     //--------------------------- accessor & mutator -----------------------------------//
     public function getDateAttribute($value)
     {

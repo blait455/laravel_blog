@@ -66,9 +66,8 @@
                                         <td>{{ $post->author->name }}</td>
                                         <td>{{ $post->category->name }}</td>
                                         {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-info">Schedule</span></td>--}}
-                                        {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td>--}}
-                                        <td><abbr title="{{ $post->dateFormatted(true) }}">{{ $post->dateFormatted() }}</abbr> |
-                                            <span class="label label-success">Published</span></td>
+                                        {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td><span class="label label-success">Published</span> --}}
+                                        <td><abbr title="{{ $post->dateFormatted(true) }}">{{ $post->dateFormatted() }}</abbr> | {!! $post->publicationLable() !!} </td>
                                     </tr>
                                 @endforeach
 
@@ -77,15 +76,11 @@
                         </div>
                         <div class="box-footer clearfix">
                             <ul class="pagination pagination-sm no-margin pull-left">
-                                <li><a href="#">«</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">»</a></li>
+                                {{ $posts->render() }}
                             </ul>
                         </div>
                         <div class="pull-right">
-                            <small>4 items</small>
+
                         </div>
                     </div>
                         <!-- /.box-body -->
