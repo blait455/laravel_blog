@@ -13,7 +13,15 @@
             </h1>
 
             <ol class="breadcrumb">
-                <li class="active"><i class="fa fa-list"></i> Blog </li>
+                <li>
+                    <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
+                </li>
+                <li>
+                    <a href="{{ route('blog.index') }}"><i class="fa fa-list"></i> Blog </a>
+                </li>
+                <li class="active">
+                    All Posts
+                </li>
             </ol>
         </section>
 
@@ -40,6 +48,11 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive">
+                            @if(empty($posts))
+                            <div class="alert alert-warning">
+                                <strong>No record found.</strong>
+                            </div>
+                            @else
                             <table class="table table-bordered table-condesed">
                                 <thead>
                                 <tr>
@@ -64,7 +77,7 @@
                                         </td>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->author->name }}</td>
-                                        <td>{{ $post->category->name }}</td>
+                                        <td>{{ $post->category->title }}</td>
                                         {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-info">Schedule</span></td>--}}
                                         {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td><span class="label label-success">Published</span> --}}
                                         <td><abbr title="{{ $post->dateFormatted(true) }}">{{ $post->dateFormatted() }}</abbr> | {!! $post->publicationLable() !!} </td>
@@ -73,12 +86,14 @@
 
                                 </tbody>
                             </table>
+
                         </div>
                         <div class="box-footer clearfix">
                             <ul class="pagination pagination-sm no-margin pull-left">
                                 {{ $posts->render() }}
                             </ul>
                         </div>
+                        @endif
                         <div class="pull-right">
 
                         </div>
