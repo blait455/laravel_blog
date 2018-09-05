@@ -13,6 +13,14 @@ class Post extends Model
     protected $dates = ['published_at'];
     // TODO: load image 009 from user image directory, create an accessor or mutator
 
+
+    public function dateFormatted($showTimes = false)
+    {
+        $format = "d/m/y";
+        if($showTimes) $format = $format . "H:i:s";
+        return $this->created_at->format($format);
+    }
+
     //--------------------------- accessor & mutator -----------------------------------//
     public function getDateAttribute($value)
     {
