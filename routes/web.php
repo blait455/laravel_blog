@@ -31,5 +31,5 @@ Auth::routes();
 
 Route::prefix('admin')->group(function () {
     Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');
-    Route::resource('blog', 'Backend\Blog\BlogController');
+    Route::resource('post', 'Backend\Blog\BlogController');
 });

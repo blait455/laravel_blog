@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" xmlns="http://www.w3.org/1999/html">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> Blog
@@ -17,7 +17,7 @@
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
                 </li>
                 <li>
-                    <a href="{{ route('blog.index') }}"><i class="fa fa-list"></i> Blog </a>
+                    <a href="{{ route('post.index') }}"><i class="fa fa-list"></i> Blog </a>
                 </li>
                 <li class="active">
                     Add New Post
@@ -34,32 +34,42 @@
 
                         {!! Form::model($post, [
                             'method' => 'POST',
-                            'route'  => 'blog.store'
+                            'route'  => 'post.store'
                         ]) !!}
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                             {!! Form::label('title') !!}
                             {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                            @if($errors->has('title')) <span class="help-block">{{$errors->first('title')}}</span> @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
                             {!! Form::label('slug') !!}
                             {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+                            @if($errors->has('slug')) <span class="help-block">{{$errors->first('slug')}}</span> @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('excerpt') ? 'has-error' : '' }}">
                             {!! Form::label('excerpt') !!}
                             {!! Form::textarea('excerpt', null, ['class' => 'form-control']) !!}
+                            @if($errors->has('excerpt')) <span class="help-block">{{$errors->first('excerpt')}}</span> @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
                             {!! Form::label('body') !!}
                             {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                            @if($errors->has('body')) <span class="help-block">{{$errors->first('body')}}</span> @endif
                         </div>
                         <div class="form-group">
                             {!! Form::label('published_at', 'Publish Date') !!}
                             {!! Form::text('published_at', null, ['class' => 'form-control']) !!}
+                            {{--@if($errors->has('published_at')) <span class="help-block">{{$errors->first('published_at')}}</span> @endif--}}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
                             {!! Form::label('category_id', 'Category') !!}
                             {!! Form::select('category_id', \App\Models\Category::pluck('title', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Choose category']) !!}
+                            @if($errors->has('category_id')) <span class="help-block">{{$errors->first('category_id')}}</span> @endif
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('featured', 'Featured Post') !!}
+                            {!! Form::checkbox('featured', null, false) !!}
                         </div>
                             <hr><h3><strong>SEO</strong></h3><br>
                         <div class="form-group">

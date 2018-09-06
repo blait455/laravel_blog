@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Blog;
 
 use App\Http\Controllers\Backend\BackendBaseController\BackendBaseController;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -36,9 +37,13 @@ class BlogController extends BackendBaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        dd('blog created bro');
+        $this->checkboxValueChange($request);
+
+        $request->user()->posts()->create($request->all());
+
+        return redirect(route('post.index'))->with('message', 'Your post has been created!');
     }
 
     /**
@@ -84,5 +89,39 @@ class BlogController extends BackendBaseController
     public function destroy($id)
     {
         //
+    }
+
+
+    //--------------------------------------- Custom Methods ----------------------------------------------------------//
+    private function checkboxValueChange(Request $request)
+    {
+        // change featured
+        if($request->has('featured')){
+           $request['featured'] = true;
+        } else {
+            $request->request->add(['featured' => false]);
+        }
+
+        // change no_index
+        if($request->has('no_index')){
+            $request['no_index'] = true;
+        } else {
+            $request->request->add(['no_index' => false]);
+        }
+
+        // change no_index
+        if($request->has('no_follow')){
+            $request['no_follow'] = true;
+        } else {
+            $request->request->add(['no_follow' => false]);
+        }
+
+        // change no_index
+        if($request->has('top_content')){
+            $request['top_content'] = true;
+        } else {
+            $request->request->add(['top_content' => false]);
+        }
+        return $request;
     }
 }

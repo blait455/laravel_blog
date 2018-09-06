@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
 //            }
 //            return response()->view('customErrors.404Frontend', compact('statusCode'), 404);
 //        }
-        dd($exception);
+//        dd($exception);
 
         return parent::render($request, $exception);
     }
