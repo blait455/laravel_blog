@@ -25,9 +25,9 @@ class BlogController extends BackendBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        dd('create new method');
+        return view('backend.blog.create', compact('post'));
     }
 
     /**
@@ -38,7 +38,7 @@ class BlogController extends BackendBaseController
      */
     public function store(Request $request)
     {
-        //
+        dd('blog created bro');
     }
 
     /**
