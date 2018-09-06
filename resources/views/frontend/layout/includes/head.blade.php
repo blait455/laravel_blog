@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=no;target-densityDpi=medium-dpi" />
     <link rel="stylesheet" type="text/css" href="http://static.friday-ad.co.uk/bundles/fafrontend/css/google-fonts.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="canonical" href="http://www.example.com/authoritative-page/" />
     <meta property="og:title" content="TITLE" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="URL" />

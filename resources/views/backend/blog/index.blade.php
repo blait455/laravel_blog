@@ -32,7 +32,7 @@
                     <div class="box">
                         <div class="box-header">
                             <div class="pull-left">
-                                <a id="add-button" title="Add New" class="btn btn-success" href="form.html"><i class="fa fa-plus-circle"></i> Add New</a>
+                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('blog.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
                             </div>
                             <div class="pull-right">
                                 <form accept-charset="utf-8" method="post" class="form-inline" id="form-filter" action="#">
