@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class BlogController extends BackendBaseController
 {
+    protected $uploadPath;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->uploadPath = public_path('images_blog');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +50,9 @@ class BlogController extends BackendBaseController
     {
         $this->checkboxValueChange($request);
 
-        $request->user()->posts()->create($request->all());
+        $data = $this->handleRequest($request);
+
+        $request->user()->posts()->create($data);
 
         return redirect(route('post.index'))->with('message', 'Your post has been created!');
     }
@@ -93,6 +104,12 @@ class BlogController extends BackendBaseController
 
 
     //--------------------------------------- Custom Methods ----------------------------------------------------------//
+
+    /**
+     * Change the check box values passed to create form request
+     * @param Request $request
+     * @return Request
+     */
     private function checkboxValueChange(Request $request)
     {
         // change featured
@@ -123,5 +140,21 @@ class BlogController extends BackendBaseController
             $request->request->add(['top_content' => false]);
         }
         return $request;
+    }
+
+
+    private function handleRequest($request)
+    {
+        $data = $request->all();
+        if($request->hasFile('image'))
+        {
+            $image = $request->file('image');   //take
+            $fileName = $image->getClientOriginalName();       //take
+            $destination = $this->uploadPath;
+            $image->move($destination, $fileName);  //take
+
+            $data['image'] = $fileName;
+        }
+        return $data;
     }
 }

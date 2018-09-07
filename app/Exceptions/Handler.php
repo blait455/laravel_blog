@@ -3,9 +3,12 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -46,20 +49,70 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-//        if ($exception instanceof ModelNotFoundException) {
-//            return response()->view('errorsy.404', [], 404);
-//        }
+        // If Model Not found (e.g: not existing user error)
+        if ($exception instanceof ModelNotFoundException)
+        {
+            $statusCode = 404;
+            $modelName = strtolower(class_basename($exception->getModel()));
+            $statusMessage = "Does not exists any {$modelName} with the specified identificator";
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
 
-//        if ($exception instanceof NotFoundHttpException) {
-//
-//            $statusCode = $exception->getStatusCode($exception);
-//            if($request->is('admin/*'))
-//            {
-//                return response()->view('customErrors.404Backend', compact('statusCode'), 404);
-//            }
-//            return response()->view('customErrors.404Frontend', compact('statusCode'), 404);
-//        }
-//        dd($exception);
+
+        // Handling unauthorized users exception
+        if ($exception instanceof AuthorizationException)
+        {
+            $statusCode = $exception->getStatusCode($exception);
+            $statusMessage = $exception->getMessage();
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
+
+
+        // Handling unauthorized users exception
+        if ($exception instanceof MethodNotAllowedHttpException)
+        {
+            $statusCode = $exception->getStatusCode($exception);
+            $statusMessage = "This specified method for the request is invalid";
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
+
+
+        // Not found exception handle
+        if ($exception instanceof NotFoundHttpException)
+        {
+            $statusCode = $exception->getStatusCode($exception);
+            $statusMessage = "This specified url cannot be found.";
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
+
+
+         //Handling unauthorized users exception
+        if ($exception instanceof HttpException)
+        {
+            $statusCode = $exception->getStatusCode($exception);
+            $statusMessage = "This specified method for the request is invalid";
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
 
         return parent::render($request, $exception);
     }

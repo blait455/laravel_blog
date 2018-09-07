@@ -34,7 +34,8 @@
 
                         {!! Form::model($post, [
                             'method' => 'POST',
-                            'route'  => 'post.store'
+                            'route'  => 'post.store',
+                            'files'  => true
                         ]) !!}
 
                         <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
@@ -67,9 +68,19 @@
                             {!! Form::select('category_id', \App\Models\Category::pluck('title', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Choose category']) !!}
                             @if($errors->has('category_id')) <span class="help-block">{{$errors->first('category_id')}}</span> @endif
                         </div>
+                        <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
+                            {!! Form::label('image', 'Feature Image') !!}
+                            {!! Form::file('image') !!}
+                            @if($errors->has('image')) <span class="help-block">{{$errors->first('image')}}</span> @endif
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('image_alt', 'Image Alt') !!}
+                            {!! Form::text('image_alt', null, ['class' => 'form-control']) !!}
+                        </div>
                         <div class="form-group">
                             {!! Form::label('featured', 'Featured Post') !!}
                             {!! Form::checkbox('featured', null, false) !!}
+                            <span class="help-block">If chosen it will be under featured image</span>
                         </div>
                             <hr><h3><strong>SEO</strong></h3><br>
                         <div class="form-group">
