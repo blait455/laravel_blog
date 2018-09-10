@@ -17,7 +17,7 @@
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
                 </li>
                 <li>
-                    <a href="{{ route('blog.index') }}"><i class="fa fa-list"></i> Blog </a>
+                    <a href="{{ route('post.index') }}"><i class="fa fa-list"></i> Blog </a>
                 </li>
                 <li class="active">
                     All Posts
@@ -32,7 +32,7 @@
                     <div class="box">
                         <div class="box-header">
                             <div class="pull-left">
-                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('blog.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('post.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
                             </div>
                             <div class="pull-right">
                                 <form accept-charset="utf-8" method="post" class="form-inline" id="form-filter" action="#">
@@ -48,6 +48,13 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive">
+                            {{--session message--}}
+                            @if(session('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
+
                             @if(empty($posts))
                             <div class="alert alert-warning">
                                 <strong>No record found.</strong>
@@ -68,10 +75,10 @@
                                 @foreach($posts as $post)
                                     <tr>
                                         <td width="70">
-                                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('blog.edit',  $post->id) }}">
+                                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('post.edit',  $post->id) }}">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="{{ route('blog.destroy', $post->id) }}">
+                                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="{{ route('post.destroy', $post->id) }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>
@@ -102,7 +109,7 @@
                     </div>
                     <!-- /.box -->
                 </div>
-            </div>
+
             <!-- ./row -->
         </section>
         <!-- /.content -->

@@ -17,7 +17,7 @@
                                             <div class="text-center">
                                                 <h1 class="error_404">{{ $statusCode }}</h1>
                                                 <h1 class="error_head">This page can't be found...</h1>
-                                                <h2 class="subhead">...a bit like a home for many dogs.</h2>
+                                                <h2 class="subhead">...{{ $statusMessage }}</h2>
                                             </div>
                                         </div>
                                     </div>
