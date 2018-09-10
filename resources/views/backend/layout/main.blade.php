@@ -17,6 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('backend/css/skins/_all-skins.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/plugins/simple-mde/simplemde.min.css') }}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 
@@ -52,6 +53,8 @@
 <script src="{{ asset('backend/js/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('backend/plugins/simple-mde/simplemde.min.js') }}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/js/app.min.js') }}"></script>
 @yield('script')

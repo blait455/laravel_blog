@@ -6,15 +6,20 @@ use App\Http\Controllers\Backend\BackendBaseController\BackendBaseController;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends BackendBaseController
 {
     protected $uploadPath;
+    protected $thumbnailImageHeight;
+    protected $thumbnailImageWeight;
 
     public function __construct()
     {
         parent::__construct();
         $this->uploadPath = public_path('images_blog');
+        $this->thumbnailImageHeight = 170;
+        $this->thumbnailImageWeight = 250;
     }
 
 
@@ -26,7 +31,6 @@ class BlogController extends BackendBaseController
     public function index()
     {
         $posts = Post::with('category', 'author')->latest()->paginate(8);
-        //dd($posts);
         return view('backend.blog.index', compact('posts'));
     }
 
@@ -50,9 +54,17 @@ class BlogController extends BackendBaseController
     {
         $this->checkboxValueChange($request);
 
-        $data = $this->handleRequest($request);
+        $postData = $request->user()->posts()->create($request->all());
 
-        $request->user()->posts()->create($data);
+        $post = Post::findOrFail($postData->id);
+        $data = $this->handleRequest($request, $postData->id);
+
+        $post->image = $data['image'];
+        $post->save();
+
+//        $this->checkboxValueChange($request);
+//        $data = $this->handleRequest($request);
+//        $request->user()->posts()->create($data);
 
         return redirect(route('post.index'))->with('message', 'Your post has been created!');
     }
@@ -142,16 +154,31 @@ class BlogController extends BackendBaseController
         return $request;
     }
 
-
-    private function handleRequest($request)
+    /**
+     * Handle Image while creating post, create a thumbnail image and create them inside a folder named by post id
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    private function handleRequest($request, $id)
     {
         $data = $request->all();
         if($request->hasFile('image'))
         {
             $image = $request->file('image');   //take
             $fileName = $image->getClientOriginalName();       //take
-            $destination = $this->uploadPath;
-            $image->move($destination, $fileName);  //take
+
+            $destination = $this->uploadPath.'/'.$id;
+            $successUpload = $image->move($destination, $fileName);  //take
+
+            // if the image uploaded successfully then make the thumbnail
+            if($successUpload){
+                $extension = $image->getClientOriginalExtension();
+                $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}", $fileName);
+                Image::make($destination.'/'.$fileName)
+                    ->resize($this->thumbnailImageWeight,$this->thumbnailImageHeight)
+                    ->save($destination.'/'.$thumbnail);
+            }
 
             $data['image'] = $fileName;
         }
