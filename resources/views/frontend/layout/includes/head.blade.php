@@ -1,6 +1,18 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+    {{--@php--}}
+        {{--$routeName = Route::currentRouteName();--}}
+    {{--if($routeName === 'blog.show')--}}
+    {{--{--}}
+        {{--echo '<h1>Hello World</h1>';--}}
+    {{--}elseif ($routeName === 'author')--}}
+    {{--{--}}
+        {{--echo '<h1>This is Author</h1>';--}}
+    {{--}--}}
+    {{--@endphp--}}
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=no;target-densityDpi=medium-dpi" />
     <link rel="stylesheet" type="text/css" href="http://static.friday-ad.co.uk/bundles/fafrontend/css/google-fonts.css" />
