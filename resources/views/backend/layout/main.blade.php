@@ -56,8 +56,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
+<script src="{{ asset('backend/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
 <!-- AdminLTE App -->
-<script src="{{ asset('backend/js/app.min.js') }}"></script>
+{{--<script src="{{ asset('backend/js/app.min.js') }}"></script>--}}
 @yield('script')
 </body>
 </html>

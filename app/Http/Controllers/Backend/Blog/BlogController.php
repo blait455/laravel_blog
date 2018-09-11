@@ -62,10 +62,6 @@ class BlogController extends BackendBaseController
         $post->image = $data['image'];
         $post->save();
 
-//        $this->checkboxValueChange($request);
-//        $data = $this->handleRequest($request);
-//        $request->user()->posts()->create($data);
-
         return redirect(route('post.index'))->with('message', 'Your post has been created!');
     }
 
@@ -166,21 +162,21 @@ class BlogController extends BackendBaseController
         if($request->hasFile('image'))
         {
             $image = $request->file('image');   //take
-            $fileName = $image->getClientOriginalName();       //take
-
+            $extension = $image->getClientOriginalExtension();
+            $newImageName = time().'.'.$extension;
             $destination = $this->uploadPath.'/'.$id;
-            $successUpload = $image->move($destination, $fileName);  //take
+            $successUpload = $image->move($destination, $newImageName);  //take
 
             // if the image uploaded successfully then make the thumbnail
             if($successUpload){
-                $extension = $image->getClientOriginalExtension();
-                $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}", $fileName);
-                Image::make($destination.'/'.$fileName)
+
+                $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}", $newImageName);
+                Image::make($destination.'/'.$newImageName)
                     ->resize($this->thumbnailImageWeight,$this->thumbnailImageHeight)
                     ->save($destination.'/'.$thumbnail);
             }
 
-            $data['image'] = $fileName;
+            $data['image'] = $newImageName;
         }
         return $data;
     }
