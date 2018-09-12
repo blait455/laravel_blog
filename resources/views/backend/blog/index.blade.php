@@ -48,12 +48,9 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive">
+
                             {{--session message--}}
-                            @if(session('message'))
-                                <div class="alert alert-success">
-                                    {{ session('message') }}
-                                </div>
-                            @endif
+                            @include('backend.blog.message')
 
                             @if(empty($posts))
                             <div class="alert alert-warning">
@@ -75,12 +72,14 @@
                                 @foreach($posts as $post)
                                     <tr>
                                         <td width="70">
-                                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('article.edit',  $post->id) }}">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="{{ route('article.destroy', $post->id) }}">
-                                                <i class="fa fa-times"></i>
-                                            </a>
+                                            {!! Form::open([ 'method' => 'DELETE',  'route' => ['article.destroy', $post->id]]) !!}
+                                                <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('article.edit',  $post->id) }}">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <button type="submit" class="btn btn-xs btn-danger delete-row">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            {!! Form::close() !!}
                                         </td>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->author->name }}</td>

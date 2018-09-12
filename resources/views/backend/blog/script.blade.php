@@ -28,6 +28,10 @@
             $('#post-form').submit();
         })
 
+        function clickHandler() {
+            document.getElementById("draft").value = true;
+        }
+
     </script>
     <script type="text/javascript">
         var editor_config = {

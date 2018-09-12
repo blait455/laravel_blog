@@ -52,9 +52,8 @@ class BlogController extends BackendBaseController
      */
     public function store(PostRequest $request)
     {
-
         $this->checkboxValueChange($request);
-//        dd($request);
+
         $postData = $request->user()->posts()->create($request->all());
 
         $post = Post::findOrFail($postData->id);
@@ -127,10 +126,15 @@ class BlogController extends BackendBaseController
      */
     private function checkboxValueChange(Request $request)
     {
-        // change featured date
+        // change featured if pressed published
         if($request['published_at'] == null){
             $today   = new \DateTime;
             $request['published_at'] = $today->format('Y-m-d H:i:s');
+        }
+
+        // save as draft if pressed save draft
+        if($request['draft'] == true){
+            $request['published_at'] = null;
         }
 
         // change featured

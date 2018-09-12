@@ -80,10 +80,14 @@
         </div>
         <div class="box-footer clearfix">
             <div class="pull-left">
-                <a id="draft-btn" href="#" class="btn btn-default">Save Draft</a>
+                {{--<a id="draft-btn" href="#" class="btn btn-default">Save Draft</a>--}}
+
+                <a id="draft-btn" name="draft" href="#" onclick="clickHandler()" class="btn btn-default">Save Draft</a>
+                <input type="hidden" name="draft" id="draft" value=""/>
+
             </div>
             <div class="pull-right">
-                {!! Form::submit('Publish', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Publish', ['class' => 'btn btn-primary', 'value' => true]) !!}
             </div>
         </div>
     </div>
