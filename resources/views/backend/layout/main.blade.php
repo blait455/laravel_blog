@@ -59,7 +59,7 @@
 <script src="{{ asset('backend/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 <!-- AdminLTE App -->
-{{--<script src="{{ asset('backend/js/app.min.js') }}"></script>--}}
+<script src="{{ asset('backend/js/app.min.js') }}"></script>
 @yield('script')
 </body>
 </html>

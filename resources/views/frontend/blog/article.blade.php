@@ -30,8 +30,11 @@
 
         <div class="clearfix border-line-b"></div>
         <div class="clearfix p-b-10 m-b-10"></div>
-        <img src="{{ $post->image }}">
-        <p> {!! $post->body_html  !!} </p>
+        @if(isset($post->image))
+            <img src="{{ asset('images_blog') }}/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">
+        @endif
+        {{--<p> {!! $post->body_html  !!} </p>--}}
+        <p> {!! $post->body !!} </p>
         <div class="clearfix p-b-10"></div>
         <div class="clearfix border-line-t"></div>
 

@@ -49,6 +49,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        /*
+        if($exception instanceof \ErrorException){
+            $statusCode = 404;
+            $statusMessage = "Does not exists any such page";
+            if($request->is('admin/*'))
+            {
+                return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
+            }
+            return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
+        }
+
         // If Model Not found (e.g: not existing user error)
         if ($exception instanceof ModelNotFoundException)
         {
@@ -113,7 +124,7 @@ class Handler extends ExceptionHandler
             }
             return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
         }
-
+        */
         return parent::render($request, $exception);
     }
 

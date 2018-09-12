@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
 
-@section('title', 'Admin Blog | Add New Post')
+@section('title', 'Admin Blog | Edit Post')
 
 
 @section('content')
@@ -9,7 +9,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> Blog
-                <small>Add new post</small>
+                <small>Edit Post</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -20,7 +20,7 @@
                     <a href="{{ route('article.index') }}"><i class="fa fa-list"></i> Blog </a>
                 </li>
                 <li class="active">
-                    Add New Post
+                    Edit Post
                 </li>
             </ol>
         </section>
@@ -29,8 +29,8 @@
         <section class="content">
             <div class="row">
                 {!! Form::model($post, [
-                          'method' => 'POST',
-                          'route'  => 'article.store',
+                          'method' => 'PUT',
+                          'route'  => ['article.update', $post->id],
                           'files'  => true,
                           'id'     => 'post-form'
                       ]) !!}

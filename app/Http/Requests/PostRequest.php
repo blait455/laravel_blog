@@ -23,13 +23,20 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'         => 'required',
-            'slug'          => 'required|unique:posts',
-            'excerpt'       => 'required',
-            'body'          => 'required',
-            'category_id'   => 'required',
-            'image'         => 'mimes:jpeg,png,jpg,gif'
-        ];
+        $rules = [
+        'title'         => 'required',
+        'slug'          => 'required|unique:posts',
+        'excerpt'       => 'required',
+        'body'          => 'required',
+        'category_id'   => 'required',
+        'image'         => 'mimes:jpeg,png,jpg,gif'
+    ];
+        switch ($this->method()) {
+            case 'PUT':
+            case 'PATCH':
+                $rules['slug'] = 'required|unique:posts,slug,'. $this->route('article');
+                break;
+        }
+        return $rules;
     }
 }

@@ -52,8 +52,9 @@ class BlogController extends BackendBaseController
      */
     public function store(PostRequest $request)
     {
-        $this->checkboxValueChange($request);
 
+        $this->checkboxValueChange($request);
+//        dd($request);
         $postData = $request->user()->posts()->create($request->all());
 
         $post = Post::findOrFail($postData->id);
@@ -62,7 +63,7 @@ class BlogController extends BackendBaseController
         $post->image = $data['image'];
         $post->save();
 
-        return redirect(route('post.index'))->with('message', 'Your post has been created!');
+        return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
     /**
@@ -84,7 +85,8 @@ class BlogController extends BackendBaseController
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('backend.blog.edit', compact('post'));
     }
 
     /**
@@ -94,9 +96,14 @@ class BlogController extends BackendBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $this->checkboxValueChange($request);
+        //dd($request);
+        $data = $this->handleRequest($request, $id);
+        $post->update($data);
+        return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
     /**
@@ -120,6 +127,12 @@ class BlogController extends BackendBaseController
      */
     private function checkboxValueChange(Request $request)
     {
+        // change featured date
+        if($request['published_at'] == null){
+            $today   = new \DateTime;
+            $request['published_at'] = $today->format('Y-m-d H:i:s');
+        }
+
         // change featured
         if($request->has('featured')){
            $request['featured'] = true;
@@ -177,6 +190,8 @@ class BlogController extends BackendBaseController
             }
 
             $data['image'] = $newImageName;
+        }else{
+            $data['image'] = null;
         }
         return $data;
     }
