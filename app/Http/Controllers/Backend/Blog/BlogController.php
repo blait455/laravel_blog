@@ -60,7 +60,6 @@ class BlogController extends BackendBaseController
     public function store(PostRequest $request)
     {
         $this->checkboxValueChange($request);
-
         $postData = $request->user()->posts()->create($request->all());
 
         $post = Post::findOrFail($postData->id);
@@ -107,9 +106,16 @@ class BlogController extends BackendBaseController
     {
         $post = Post::findOrFail($id);
         $this->checkboxValueChange($request);
-        //dd($request);
-        $data = $this->handleRequest($request, $id);
-        $post->update($data);
+        // checking if image has been changed
+        if($request->hasFile('image')){
+            $this->articleImageRemove($id);
+            $data = $this->handleRequest($request, $id);
+            $post->update($data);
+        }else{
+            $data = $request->all();
+            $post->update($data);
+        }
+
         return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
@@ -137,21 +143,37 @@ class BlogController extends BackendBaseController
     {
         $data = Post::onlyTrashed()->findOrFail($id)->forceDelete();
         if($data) {
-        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$id;
-            if(is_dir($dir)) {
-                $contents = scandir($dir);
-                unset($contents[0], $contents[1]);
-                foreach ($contents as $content)
-                {
-                    unlink($dir.DIRECTORY_SEPARATOR.$content);
-                }
-                rmdir($dir);
-            }else{
-                return redirect(route('article.index').'?status=trash')->with('message', 'Your post was deleted successfully');
-            }
+            $this->articleImageRemove($id);
         }
         return redirect('admin/article?status=trash')->with('message', 'Your post has been deleted permanently');
     }
+
+
+
+
+    //--------------------------------------- Custom Methods ----------------------------------------------------------//
+
+    /**
+     * Delete images related to article id
+     * @param $articleId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    private function articleImageRemove($articleId)
+    {
+        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$articleId;
+        if(is_dir($dir)) {
+            $contents = scandir($dir);
+            unset($contents[0], $contents[1]);
+            foreach ($contents as $content)
+            {
+                unlink($dir.DIRECTORY_SEPARATOR.$content);
+            }
+            rmdir($dir);
+        }else{
+            return redirect(route('article.index').'?status=trash')->with('message', 'Your post was deleted successfully');
+        }
+    }
+
 
     /**
      * Restore deleted article
@@ -166,8 +188,6 @@ class BlogController extends BackendBaseController
         return redirect(route('article.index'))->with('restore-message', 'Your post has been restored');
     }
 
-
-    //--------------------------------------- Custom Methods ----------------------------------------------------------//
 
     /**
      * Change the check box values passed to create form request
@@ -216,6 +236,7 @@ class BlogController extends BackendBaseController
         }
         return $request;
     }
+
 
     /**
      * Handle Image while creating post, create a thumbnail image and create them inside a folder named by post id
