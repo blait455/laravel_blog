@@ -33,4 +33,5 @@ Route::prefix('admin')->group(function () {
     Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');
     Route::resource('article', 'Backend\Blog\BlogController');
     Route::put('article/restore/{article}', 'Backend\Blog\BlogController@restore')->name('admin.article.restore');
+    Route::delete('article/force-destroy/{article}', 'Backend\Blog\BlogController@forceDestroy')->name('admin.article.force-destroy');
 });

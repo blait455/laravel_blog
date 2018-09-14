@@ -53,46 +53,15 @@
                             @include('backend.blog.message')
 
                             @if(empty($posts))
-                            <div class="alert alert-warning">
-                                <strong>No record found.</strong>
-                            </div>
+                                <div class="alert alert-warning">
+                                    <strong>No record found.</strong>
+                                </div>
                             @else
-                            <table class="table table-bordered table-condesed">
-                                <thead>
-                                <tr>
-                                    <th>Action</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Category</th>
-                                    <th>Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach($posts as $post)
-                                    <tr>
-                                        <td width="70">
-                                            {!! Form::open([ 'method' => 'DELETE',  'route' => ['article.destroy', $post->id]]) !!}
-                                                <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('article.edit',  $post->id) }}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <button type="submit" class="btn btn-xs btn-danger delete-row">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            {!! Form::close() !!}
-                                        </td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{{ $post->author->name }}</td>
-                                        <td>{{ $post->category->title }}</td>
-                                        {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-info">Schedule</span></td>--}}
-                                        {{--<td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td><span class="label label-success">Published</span> --}}
-                                        <td><abbr title="{{ $post->dateFormatted(true) }}">{{ $post->dateFormatted() }}</abbr> | {!! $post->publicationLable() !!} </td>
-                                    </tr>
-                                @endforeach
-
-                                </tbody>
-                            </table>
-
+                                @if($onlyTrashed)
+                                    @include('backend.blog.include.table-trash')
+                                @else
+                                    @include('backend.blog.include.table')
+                                @endif
                         </div>
                         <div class="box-footer clearfix">
                             <ul class="pagination pagination-sm no-margin pull-left">

@@ -28,10 +28,17 @@ class BlogController extends BackendBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('category', 'author')->latest()->paginate(8);
-        return view('backend.blog.index', compact('posts'));
+        if(($status = $request->get('status')) && $status == 'trash')
+        {
+            $posts = Post::onlyTrashed()->with('category', 'author')->latest()->paginate(8);
+            $onlyTrashed = TRUE;
+        }else{
+            $posts = Post::with('category', 'author')->latest()->paginate(8);
+            $onlyTrashed = FALSE;
+        }
+        return view('backend.blog.index', compact('posts', 'onlyTrashed'));
     }
 
     /**
@@ -88,12 +95,13 @@ class BlogController extends BackendBaseController
         return view('backend.blog.edit', compact('post'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param PostRequest $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(PostRequest $request, $id)
     {
@@ -116,23 +124,41 @@ class BlogController extends BackendBaseController
     public function destroy($id)
     {
         $data = Post::findOrFail($id)->delete();
-//        if($data) {
-//        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$id;
-//            if(is_dir($dir)) {
-//                $contents = scandir($dir);
-//                unset($contents[0], $contents[1]);
-//                foreach ($contents as $content)
-//                {
-//                    unlink($dir.DIRECTORY_SEPARATOR.$content);
-//                }
-//                rmdir($dir);
-//            }else{
-//                return redirect(route('article.index'))->with('message', 'Your post was deleted successfully');
-//            }
-//        }
         return redirect(route('article.index'))->with('trash-message', ['Your post moved to trash successfully', $id]);
     }
 
+    /**
+     * Delete an article permanently from trash and also delete related images
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function forceDestroy($id)
+    {
+        $data = Post::onlyTrashed()->findOrFail($id)->forceDelete();
+        if($data) {
+        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$id;
+            if(is_dir($dir)) {
+                $contents = scandir($dir);
+                unset($contents[0], $contents[1]);
+                foreach ($contents as $content)
+                {
+                    unlink($dir.DIRECTORY_SEPARATOR.$content);
+                }
+                rmdir($dir);
+            }else{
+                return redirect(route('article.index').'?status=trash')->with('message', 'Your post was deleted successfully');
+            }
+        }
+        return redirect('admin/article?status=trash')->with('message', 'Your post has been deleted permanently');
+    }
+
+    /**
+     * Restore deleted article
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function restore($id)
     {
         $post = Post::onlyTrashed()->findOrFail($id);
