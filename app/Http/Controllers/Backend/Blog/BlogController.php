@@ -17,7 +17,7 @@ class BlogController extends BackendBaseController
     public function __construct()
     {
         parent::__construct();
-        $this->uploadPath = public_path('images_blog');
+        $this->uploadPath = public_path('images_blog/article');
         $this->thumbnailImageHeight = 170;
         $this->thumbnailImageWeight = 250;
     }
@@ -105,15 +105,39 @@ class BlogController extends BackendBaseController
         return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        $data = Post::findOrFail($id)->delete();
+//        if($data) {
+//        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$id;
+//            if(is_dir($dir)) {
+//                $contents = scandir($dir);
+//                unset($contents[0], $contents[1]);
+//                foreach ($contents as $content)
+//                {
+//                    unlink($dir.DIRECTORY_SEPARATOR.$content);
+//                }
+//                rmdir($dir);
+//            }else{
+//                return redirect(route('article.index'))->with('message', 'Your post was deleted successfully');
+//            }
+//        }
+        return redirect(route('article.index'))->with('trash-message', ['Your post moved to trash successfully', $id]);
+    }
+
+    public function restore($id)
+    {
+        $post = Post::onlyTrashed()->findOrFail($id);
+        $post->restore();
+        return redirect(route('article.index'))->with('restore-message', 'Your post has been restored');
     }
 
 

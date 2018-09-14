@@ -5,9 +5,11 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['view_count','title', 'body', 'slug', 'excerpt', 'image', 'image_alt',
         'featured', 'published_at', 'category_id', 'meta_description', 'canonical_url' , 'redirect_url' , 'no_index' , 'no_follow' , 'top_content'];
 
