@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 class BackendBaseController extends Controller
 {
+    protected $pageLimit = 10;
+
     public function __construct()
     {
         $this->middleware('auth');

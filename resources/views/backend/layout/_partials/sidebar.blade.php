@@ -25,8 +25,8 @@
                     <i class="fa fa-pencil"></i>
                     <span>Post</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('article.index') }}"><i class="fa fa-list"></i> All Posts</a></li>
@@ -38,7 +38,7 @@
                     <li><a href="{{ route('article.index') }}?status=featured"><i class="fa fa-star"></i> Featured</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-folder"></i> <span>Categories</span></a></li>
+            <li><a href="{{ route('category.index') }}"><i class="fa fa-life-buoy"></i> <span>Categories</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

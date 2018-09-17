@@ -14,6 +14,7 @@ class BlogController extends BackendBaseController
     protected $thumbnailImageHeight;
     protected $thumbnailImageWeight;
 
+
     public function __construct()
     {
         parent::__construct();
@@ -33,25 +34,26 @@ class BlogController extends BackendBaseController
         $onlyTrashed = FALSE;
         if(($status = $request->get('status')) && $status == 'trash')
         {
-            $posts = Post::onlyTrashed()->with('category', 'author')->latest()->paginate(8);
+            $posts = Post::onlyTrashed()->with('category', 'author')->latest()->paginate($this->pageLimit);
             $onlyTrashed = TRUE;
         }elseif($status == 'published')
         {
-            $posts = Post::published()->with('category', 'author')->latest()->paginate(8);
+            $posts = Post::published()->with('category', 'author')->latest()->paginate($this->pageLimit);
         }elseif($status == 'scheduled')
         {
-            $posts = Post::scheduled()->with('category', 'author')->latest()->paginate(8);
+            $posts = Post::scheduled()->with('category', 'author')->latest()->paginate($this->pageLimit);
         }elseif($status == 'draft')
         {
-            $posts = Post::draft()->with('category', 'author')->latest()->paginate(8);
+            $posts = Post::draft()->with('category', 'author')->latest()->paginate($this->pageLimit);
         }elseif($status == 'featured')
         {
-            $posts = Post::featured()->with('category', 'author')->latest()->paginate(8);
+            $posts = Post::featured()->with('category', 'author')->latest()->paginate($this->pageLimit);
         }else{
-            $posts = Post::with('category', 'author')->latest()->paginate(8);
+            $posts = Post::with('category', 'author')->latest()->paginate($this->pageLimit);
         }
         return view('backend.blog.index', compact('posts', 'onlyTrashed', 'status'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -62,6 +64,7 @@ class BlogController extends BackendBaseController
     {
         return view('backend.blog.create', compact('post'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -83,16 +86,6 @@ class BlogController extends BackendBaseController
         return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -145,6 +138,7 @@ class BlogController extends BackendBaseController
         return redirect(route('article.index'))->with('trash-message', ['Your post moved to trash successfully', $id]);
     }
 
+
     /**
      * Delete an article permanently from trash and also delete related images
      *
@@ -159,8 +153,6 @@ class BlogController extends BackendBaseController
         }
         return redirect('admin/article?status=trash')->with('message', 'Your post has been deleted permanently');
     }
-
-
 
 
     //--------------------------------------- Custom Methods ----------------------------------------------------------//

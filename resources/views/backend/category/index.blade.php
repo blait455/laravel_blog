@@ -1,7 +1,7 @@
 @extends('backend.layout.main')
 
 @section('title')
-    Admin Blog | {{ ucfirst($status) }} index
+    Admin Category | category index
 @endsection
 
 
@@ -10,8 +10,8 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1> Blog
-                <small>Display All {{$status}} blog posts</small>
+            <h1> Category
+                <small>Display All categories</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -19,10 +19,10 @@
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
                 </li>
                 <li>
-                    <a href="{{ route('article.index') }}"><i class="fa fa-list"></i> Blog </a>
+                    <a href="{{ route('category.index') }}"><i class="fa fa-list"></i> Category </a>
                 </li>
                 <li class="active">
-                    All Posts
+                    All Categories
                 </li>
             </ol>
         </section>
@@ -34,7 +34,7 @@
                     <div class="box">
                         <div class="box-header">
                             <div class="pull-left">
-                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('article.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('category.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
                             </div>
                             <div class="pull-right">
                                 <form accept-charset="utf-8" method="post" class="form-inline" id="form-filter" action="#">
@@ -54,20 +54,17 @@
                             {{--session message--}}
                             @include('backend._partials.message')
 
-                            @if(empty($posts))
+                            @if(empty($categories))
                                 <div class="alert alert-warning">
                                     <strong>No record found.</strong>
                                 </div>
                             @else
-                                @if($onlyTrashed)
-                                    @include('backend.blog.include.table-trash')
-                                @else
-                                    @include('backend.blog.include.table')
-                                @endif
+                                @include('backend.category.include.table')
+
                         </div>
                         <div class="box-footer clearfix">
                             <ul class="pagination pagination-sm no-margin pull-left">
-                                {{ $posts->appends( Request::query() )->render() }}
+                                {{ $categories->appends( Request::query() )->render() }}
                             </ul>
                         </div>
                         @endif
