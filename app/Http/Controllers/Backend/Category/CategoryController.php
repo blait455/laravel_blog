@@ -24,7 +24,7 @@ class CategoryController extends BackendBaseController
      */
     public function index()
     {
-        $categories = Category::with('posts')->orderBy('title')->paginate($this->pageLimit);
+        $categories = Category::with('posts')->orderBy('id', 'desc')->paginate($this->pageLimit);
         return view("backend.category.index", compact('categories'));
     }
 
@@ -43,7 +43,7 @@ class CategoryController extends BackendBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CategoryStoreRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryStoreRequest $request)
@@ -52,16 +52,6 @@ class CategoryController extends BackendBaseController
         return redirect(route('category.index'))->with('message', 'New category has been created!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,7 +61,8 @@ class CategoryController extends BackendBaseController
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('backend.category.edit', compact('category'));
     }
 
     /**
@@ -83,17 +74,26 @@ class CategoryController extends BackendBaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        Category::findOrFail($id)->update($request->all());
+        return redirect(route('category.index'))->with('message', 'Category was updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        if($category->posts->count() === 0)
+        {
+            Category::findOrFail($id)->delete();
+            return redirect(route('category.index'))->with('message', 'Category Has been successfully deleted.');
+        }
+        return redirect(route('category.index'))->with('warning-message', 'Category cannot be deleted, related posts are depended on this category!');
     }
 }

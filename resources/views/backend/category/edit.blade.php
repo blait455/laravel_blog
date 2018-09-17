@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
 
-@section('title', 'Admin Blog | Edit Post')
+@section('title', 'Admin Blog | Edit Category')
 
 
 @section('content')
@@ -8,8 +8,8 @@
     <div class="content-wrapper" xmlns="http://www.w3.org/1999/html">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1> Blog
-                <small>Edit Post</small>
+            <h1> Category
+                <small>Edit Category</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -17,10 +17,10 @@
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
                 </li>
                 <li>
-                    <a href="{{ route('article.index') }}"><i class="fa fa-list"></i> Blog </a>
+                    <a href="{{ route('category.index') }}"><i class="fa fa-list"></i> Category </a>
                 </li>
                 <li class="active">
-                    Edit Post
+                    Edit Category
                 </li>
             </ol>
         </section>
@@ -28,14 +28,14 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                {!! Form::model($post, [
+                {!! Form::model($category, [
                           'method' => 'PUT',
-                          'route'  => ['article.update', $post->id],
+                          'route'  => ['category.update', $category->id],
                           'files'  => true,
-                          'id'     => 'post-form'
+                          'id'     => 'category-form'
                       ]) !!}
 
-                @include('backend.blog.form')
+                @include('backend.category.form')
 
                 {!! Form::close() !!}
             </div>
@@ -47,4 +47,4 @@
 
 @endsection
 
-@include('backend.blog.script')
+@include('backend.category.script')

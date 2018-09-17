@@ -15,4 +15,8 @@
     <div class="alert alert-warning">
         {{ session('restore-message') }}
     </div>
+    @elseif(session('warning-message'))
+    <div class="alert alert-danger">
+        {{ session('warning-message') }}
+    </div>
 @endif
