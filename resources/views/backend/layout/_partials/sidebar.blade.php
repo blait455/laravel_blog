@@ -32,6 +32,10 @@
                     <li><a href="{{ route('article.index') }}"><i class="fa fa-list"></i> All Posts</a></li>
                     <li><a href="{{ route('article.create') }}"><i class="fa fa-pencil-square"></i> Add New</a></li>
                     <li><a href="{{ route('article.index') }}?status=trash"><i class="fa fa-trash"></i> Trash</a></li>
+                    <li><a href="{{ route('article.index') }}?status=published"><i class="fa fa-book"></i> Published</a></li>
+                    <li><a href="{{ route('article.index') }}?status=scheduled"><i class="fa fa-anchor"></i> Scheduled</a></li>
+                    <li><a href="{{ route('article.index') }}?status=draft"><i class="fa fa-dropbox"></i> Draft</a></li>
+                    <li><a href="{{ route('article.index') }}?status=featured"><i class="fa fa-star"></i> Featured</a></li>
                 </ul>
             </li>
             <li><a href="#"><i class="fa fa-folder"></i> <span>Categories</span></a></li>

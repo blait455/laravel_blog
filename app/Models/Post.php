@@ -101,6 +101,36 @@ class Post extends Model
         return $query->where("published_at", "<=", Carbon::now());
     }
 
+    /**
+     * Show only scheduled posts
+     * @param $query
+     * @return mixed
+     */
+    public function scopeScheduled($query)
+    {
+        return $query->where("published_at", ">", Carbon::now());
+    }
+
+    /**
+     * Show only draft posts
+     * @param $query
+     * @return mixed
+     */
+    public function scopeDraft($query)
+    {
+        return $query->whereNull("published_at");
+    }
+
+    /**
+     * Show only featured posts
+     * @param $query
+     * @return mixed
+     */
+    public function scopeFeatured($query)
+    {
+        return $query->where("featured", "=", '1');
+    }
+
     //--------------------------- Relation ---------------------------------------------//
 
     public function author()

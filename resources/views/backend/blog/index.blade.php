@@ -1,6 +1,8 @@
 @extends('backend.layout.main')
 
-@section('title', 'Admin Blog | Blog index')
+@section('title')
+    Admin Blog | {{ ucfirst($status) }} index
+@endsection
 
 
 @section('content')
@@ -9,7 +11,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> Blog
-                <small>Display All blog posts</small>
+                <small>Display All {{$status}} blog posts</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -65,7 +67,7 @@
                         </div>
                         <div class="box-footer clearfix">
                             <ul class="pagination pagination-sm no-margin pull-left">
-                                {{ $posts->render() }}
+                                {{ $posts->appends( Request::query() )->render() }}
                             </ul>
                         </div>
                         @endif
