@@ -39,6 +39,20 @@
                 </ul>
             </li>
             <li><a href="{{ route('category.index') }}"><i class="fa fa-life-buoy"></i> <span>Categories</span></a></li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Manage Users</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('user.index') }}"><i class="fa fa-list"></i> Users List</a></li>
+                    <li><a href="{{ route('user.create') }}"><i class="fa fa-user-plus"></i> Create User</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

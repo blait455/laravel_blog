@@ -11,13 +11,7 @@ use Illuminate\Http\Request;
 class CategoryController extends BackendBaseController
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
