@@ -13,17 +13,17 @@
     @foreach($users as $user)
         <tr>
             <td width="70">
-                {!! Form::open([ 'method' => 'DELETE',  'route' => ['user.destroy', $user->id]]) !!}
+
                 {{-- check if the user is currently active or the default user --}}
                 @if($user->id != \Illuminate\Support\Facades\Auth::id() && $user->id != config('cms.default_user_id'))
                     <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('user.edit',  $user->id) }}">
                         <i class="fa fa-edit"></i>
                     </a>
-                    <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-xs btn-danger delete-row">
+                    <a href="{{ route('user.confirm', $user->id) }}" class="btn btn-xs btn-danger delete-row">
                         <i class="fa fa-times"></i>
-                    </button>
+                    </a>
                 @endif
-                {!! Form::close() !!}
+
             </td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>

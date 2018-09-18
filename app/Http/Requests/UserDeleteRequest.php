@@ -13,8 +13,9 @@ class UserDeleteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return !($this->route('user') == config('cms.default_user_id') || $this->route('user') == auth()->user()->id);
     }
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -24,7 +25,7 @@ class UserDeleteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           //
         ];
     }
 }

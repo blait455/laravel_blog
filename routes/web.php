@@ -37,4 +37,5 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('category', 'Backend\Category\CategoryController');
     Route::resource('user', 'Backend\User\UserController');
+    Route::get('user/confirm/{user}', 'Backend\User\UserController@confirm')->name('user.confirm');
 });
