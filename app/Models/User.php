@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'email', 'password',
+        'name', 'slug', 'email', 'password', 'bio'
     ];
 
     /**
@@ -33,6 +33,9 @@ class User extends Authenticatable
     {
         $email = $this->email;
         $default = "";
+
+
+
         $size = 100;
 
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;

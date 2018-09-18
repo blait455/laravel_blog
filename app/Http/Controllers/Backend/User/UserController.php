@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Backend\BackendBaseController\BackendBaseController;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -36,9 +38,10 @@ class UserController extends BackendBaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        User::create($request->all());
+        return redirect(route('user.index'))->with('message', 'New user has been created!');
     }
 
     /**
@@ -71,9 +74,15 @@ class UserController extends BackendBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        if($request->password != null)
+        {
+            User::findOrFail($id)->update($request->all());
+            return redirect(route('user.index'))->with('message', 'User details has been updated successfully!');
+        }
+        User::findOrFail($id)->update($request->only('name', 'slug', 'email', 'bio'));
+        return redirect(route('user.index'))->with('message', 'User details has been updated successfully!');
     }
 
     /**

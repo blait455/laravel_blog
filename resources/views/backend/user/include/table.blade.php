@@ -14,10 +14,11 @@
         <tr>
             <td width="70">
                 {!! Form::open([ 'method' => 'DELETE',  'route' => ['user.destroy', $user->id]]) !!}
-                <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('user.edit',  $user->id) }}">
-                    <i class="fa fa-edit"></i>
-                </a>
-                @if($user->id != \Illuminate\Support\Facades\Auth::id())
+                {{-- check if the user is currently active or the default user --}}
+                @if($user->id != \Illuminate\Support\Facades\Auth::id() && $user->id != config('cms.default_user_id'))
+                    <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('user.edit',  $user->id) }}">
+                        <i class="fa fa-edit"></i>
+                    </a>
                     <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-xs btn-danger delete-row">
                         <i class="fa fa-times"></i>
                     </button>
