@@ -110,7 +110,6 @@ class UserController extends BackendBaseController
         elseif($deleteOption == "attribute")
         {
             $user->posts()->update(['author_id' => $selectdUser]);
-            $user->delete();
         }
         return redirect(route('user.index'))->with('message', 'Posts and User Has been successfully deleted.');
     }
