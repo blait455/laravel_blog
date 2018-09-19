@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Laratrust\Models\LaratrustRole;
+use Laratrust\Models\LaratrustPermission;
 
-class Permission extends LaratrustRole
+class Permission extends LaratrustPermission
 {
     //
 }
