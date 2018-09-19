@@ -38,10 +38,15 @@
                     <li><a href="{{ route('article.index') }}?status=featured"><i class="fa fa-star"></i> Featured</a></li>
                 </ul>
             </li>
+
+            @role(['admin', 'editor'])
             <li><a href="{{ route('category.index') }}"><i class="fa fa-life-buoy"></i> <span>Categories</span></a></li>
-
+            @endrole
+            @role(['admin', 'editor'])
             <li><a href="{{ route('seo.index') }}"><i class="fa fa-life-buoy"></i> <span>Frontend SEO</span></a></li>
+            @endrole
 
+            @role(['admin'])
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -55,6 +60,7 @@
                     <li><a href="{{ route('user.create') }}"><i class="fa fa-user-plus"></i> Create User</a></li>
                 </ul>
             </li>
+            @endrole
         </ul>
     </section>
     <!-- /.sidebar -->
