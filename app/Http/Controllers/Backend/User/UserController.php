@@ -132,4 +132,3 @@ class UserController extends BackendBaseController
         return view('backend.user.confirm', compact('user', 'users'));
     }
 }
- 

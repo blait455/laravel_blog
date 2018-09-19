@@ -17,3 +17,4 @@ TODO: block search by author Google from crawling them using robots.txt and noin
 TODO: Using Gravatar to show user image
 
 TODO: post archive, post comments
+TODO: SEO pages create, delete

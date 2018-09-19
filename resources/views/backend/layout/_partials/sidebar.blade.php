@@ -40,6 +40,8 @@
             </li>
             <li><a href="{{ route('category.index') }}"><i class="fa fa-life-buoy"></i> <span>Categories</span></a></li>
 
+            <li><a href="{{ route('seo.index') }}"><i class="fa fa-life-buoy"></i> <span>Frontend SEO</span></a></li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>

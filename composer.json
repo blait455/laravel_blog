@@ -12,6 +12,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "santigarcor/laratrust": "5.0.*",
         "unisharp/laravel-filemanager": "^1.9"
     },
     "require-dev": {
