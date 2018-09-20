@@ -112,7 +112,7 @@ class UserController extends BackendBaseController
             $user->posts()->update(['author_id' => $selectdUser]);
         }
         return redirect(route('user.index'))->with('message', 'Posts and User Has been successfully deleted.');
-    }
+    } 
 
 
     //----------------------------------- Custom Method -----------------------------------------------------------//
