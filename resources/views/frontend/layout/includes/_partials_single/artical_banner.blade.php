@@ -1,3 +1,17 @@
+
+{{--@if(isset($post->image))--}}
+    {{--<section class="bg" style="background-image: url('http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg')">--}}
+        {{--<img src="{{ asset('images_blog/article') }}/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">--}}
+    {{--</section>--}}
+
+{{--@else--}}
+    {{--<section class="bg" style="background-image: url('http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg')">--}}
+        {{--<img src="http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg">--}}
+    {{--</section>--}}
+{{--@endif--}}
+
+<section class="clearfix">
+    <div>
 <section class="clearfix">
     <div class="fad-Article-banner">
         <div class="row">

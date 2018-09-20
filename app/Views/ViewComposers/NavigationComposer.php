@@ -4,6 +4,7 @@ namespace App\Views\ViewComposers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Seo;
 use Carbon\Carbon;
 use Illuminate\View\View;
 
@@ -13,6 +14,7 @@ class NavigationComposer
     {
         $this->composeCategories($view);
         $this->composePopularPosts($view);
+        $this->composeSeoPages($view);
     }
 
     private function composeCategories(View $view)
@@ -28,5 +30,11 @@ class NavigationComposer
     {
         $popularPosts = Post::published()->popular()->take(3)->get();
         $view->with('popularPosts', $popularPosts);
+    }
+
+    private function composeSeoPages(View $view)
+    {
+        $pagesSeo = Seo::all();
+        $view->with('pagesSeo', $pagesSeo);
     }
 }

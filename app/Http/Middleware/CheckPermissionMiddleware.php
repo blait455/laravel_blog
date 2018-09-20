@@ -65,7 +65,6 @@ class CheckPermissionMiddleware
                 break;
             }
         }
-
         return $next($request);
     }
 }

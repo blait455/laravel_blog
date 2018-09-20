@@ -19,7 +19,7 @@
 
 
     <div class="hide-for-small-only">
-        <h2 class="m-b-10">Related articles</h2>
+        <h2 class="m-b-10">Popular articles</h2>
 
         @foreach($popularPosts as $popularPost)
             <div class="listing featured">

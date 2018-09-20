@@ -22,48 +22,21 @@
                             <section class="top-bar-section">
                                 <!-- Right Nav Section -->
                                 <div class="tablet-menu">
-                                    <ul class="left hide-for-small-only real-desktop" id="top_category_menu">
+                                    <ul class="left real-desktop" id="top_category_menu">
                                         <li class="has-dropdown not-click">
-                                            <a href="javascript://" class="main_category">Blog Categories</a>
-                                            <ul class="dropdown">
+                                            <a href="javascript://" class="main_category hide-for-small-only">Blog Categories</a>
+                                            <ul class="all-menu dropdown">
                                                 <li>
                                                     <div class="row">
-                                                        <div class="large-4 medium-4 columns">
-                                                            <a href="#"><strong>Categories</strong></a>
-                                                            @foreach($categories as $category)
-                                                                <a href="{{ route('category', $category->slug) }}">{{ $category->title }} | {{ $category->posts->count() }}</a>
-                                                            @endforeach
+                                                        <div class="columns show-for-small-only">
+                                                            <a href="#" class="parent-list mobile-list-text">MENU</a>
                                                         </div>
-                                                        {{--<div class="large-4 medium-4 columns">--}}
-                                                            {{--<a href="#"><strong>Home and DIY</strong></a>--}}
-                                                            {{--<a href="#">Buying and Selling</a>--}}
-                                                            {{--<a href="#">Gardening</a>--}}
-                                                            {{--<a href="#">How to Upcycling</a>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="large-4 medium-4 columns">--}}
-                                                            {{--<a href="#"><strong>Work</strong></a>--}}
-                                                            {{--<a href="#">Job Seeker Advice</a>--}}
-                                                            {{--<a href="#">Employer Advice</a>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="large-4 medium-4 columns">--}}
-                                                            {{--<a href="#"><strong>Motors</strong></a>--}}
-                                                            {{--<a href="#">Features</a>--}}
-                                                            {{--<a href="#">Guides and Advice</a>--}}
-                                                            {{--<a href="#">Classic Cars</a>--}}
-                                                            {{--<a href="#">Reviews</a>--}}
-                                                            {{--<a href="#">Dealer Advice</a>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="large-4 medium-4 columns">--}}
-                                                            {{--<a href="#"><strong>Animals</strong></a>--}}
-                                                            {{--<a href="#">News</a>--}}
-                                                            {{--<a href="#">Care</a>--}}
-                                                            {{--<a href="#">Rehoming</a>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="large-4 medium-4 columns">--}}
-                                                            {{--<a href="#"><strong>Bizarre</strong></a>--}}
-                                                            {{--<a href="#"><strong>Events</strong></a>--}}
-                                                            {{--<a href="#"><strong>Competitions</strong></a>--}}
-                                                        {{--</div>--}}
+                                                        @foreach($categories as $category)
+                                                        <div class="large-4 medium-4 columns">
+                                                            <a href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
+                                                        </div>
+                                                        @endforeach
+
                                                     </div>
                                                 </li>
                                             </ul>
@@ -74,11 +47,11 @@
                                         $(document).foundation('topbar', 'reflow');
                                         //]]>
                                     </script>
-
                                 </div>
-                                <ul class="right hide-for-small-only">
-                                    <li><a title="" class="p-r-0"><img src="{{ URL::asset('frontend/images/FAD.co.uk_logo.png')}}"></a></li>
 
+                                <ul class="right">
+                                    <li class="place-item-btn show-for-small-only"><a href="/paa/first_step" title="Place an ad" class="placead mobile-paa-btn">Place an ad</a></li>
+                                    <li class="mob-fad-logo"><a title="" class="p-r-0"><img src="{{ asset('frontend/images/FAD.co.uk_logo.png') }}"></a></li>
                                 </ul>
                             </section>
 

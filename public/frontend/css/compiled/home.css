@@ -149,3 +149,100 @@
 	min-height: 150px;
 	background: url(http://static.friday-ad.co.uk/bundles/facore/images/ajax_loader.gif) no-repeat center center
 }
+
+/* Menu response Code Start */
+.top-bar-section .dropdown {
+	background: #efefef !important;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.21);
+	min-height: 80px;
+}
+
+@media only screen and (min-width:320px) and (max-width:640px) {
+	.all-menu.dropdown {
+		position: static !important;
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.all-menu .back, .all-menu .parent-link{
+		display: none !important;
+	}
+	.all-menu li .parent-list {
+		display: block;
+	}
+	.all-menu a.child-list {
+		display: none !important;
+	}
+	.all-menu li {
+		background: #333;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button).mobile-list-text {
+		background: #4a4a4a !important;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		background: #313133 !important;
+		color: #fff !important;
+		line-height: 40px !important;
+		padding: 0 20px !important;
+		margin-bottom: 1px !important;
+		border-bottom: 1px solid #000 !important;
+		box-shadow: 0 1px 0 #4a4a4a !important;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button).mobile-paa-btn {
+		height: 60px !important;
+		line-height: 59px !important;
+		background: #31C5F2 !important;
+		font-size: 22px !important;
+	}
+	.mob-fad-logo {
+		text-align: center;
+	}
+}
+/* Menu response Code ends */
+/* Background response Code Starts */
+.top-bar-section .dropdown {
+	background: #efefef !important;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.21);
+	min-height: 80px;
+}
+
+@media only screen and (min-width:320px) and (max-width:640px) {
+	.all-menu.dropdown {
+		position: static !important;
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.all-menu .back, .all-menu .parent-link{
+		display: none !important;
+	}
+	.all-menu li .parent-list {
+		display: block;
+	}
+	.all-menu a.child-list {
+		display: none !important;
+	}
+	.all-menu li {
+		background: #333;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button).mobile-list-text {
+		background: #4a4a4a !important;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		background: #313133 !important;
+		color: #fff !important;
+		line-height: 40px !important;
+		padding: 0 20px !important;
+		margin-bottom: 1px !important;
+		border-bottom: 1px solid #000 !important;
+		box-shadow: 0 1px 0 #4a4a4a !important;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button).mobile-paa-btn {
+		height: 60px !important;
+		line-height: 59px !important;
+		background: #31C5F2 !important;
+		font-size: 22px !important;
+	}
+	.mob-fad-logo {
+		text-align: center;
+	}
+}
+/* Background response Code Ends */

@@ -12,7 +12,7 @@
     <div class="clearfix">
         <div class="small-12 medium-14 large-12 columns text-left p-l-0">
             <div class="list-names">
-                <strong>Guides Animals, Events, News</strong>
+                <strong><a href="{{ route('category', $post->category->slug) }}">{{ $post->category->title }}</a></strong>
             </div>
             <span>
                 <em>{{ $post->date }} | <a href="{{ route('author', $post->author->slug) }}"> {{ $post->author->name }} </a> </a></em>
@@ -29,9 +29,9 @@
         </div>
 
         <div class="clearfix border-line-b"></div>
-        <div class="clearfix p-b-10 m-b-10"></div>
+        {{--<div class="clearfix p-b-10 m-b-10"></div>--}}
         @if(isset($post->image))
-            <img src="{{ asset('images_blog') }}/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">
+            <img src="{{ asset('images_blog/article') }}/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">
         @endif
         {{--<p> {!! $post->body_html  !!} </p>--}}
         <p> {!! $post->body !!} </p>
