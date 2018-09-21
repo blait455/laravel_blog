@@ -1,32 +1,29 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-//Route::get('/test', function () {
-//    return view('frontend.layout.category');
-//});
-
-
 Route::get('/blog', 'Post\PostController@index')->name('home');
 Route::get('/blog/', 'Post\PostController@index')->name('home');
 
 Route::prefix('blog')->group(function () {
-    Route::get('{post}', 'Post\PostController@show')->name('blog.show');
+    Route::get('{post}', 'Post\PostControlroler@show')->name('blog.show');
     Route::get('category/{category}', 'Category\CategoryController@index')->name('category');
     Route::get('author/{author}', 'Author\AuthorController@index')->name('author');
 });
 
-Auth::routes();
+$this->get('blog/admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('blog/admin/login', 'Auth\LoginController@login');
+$this->post('blog/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
+// Registration Routes...
+$this->get('ablog/dmin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->post('blog/admin/register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+$this->get('blog/admin/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('blog/admin/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('blog/admin/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('blog/admin/password/reset', 'Auth\ResetPasswordController@reset');
+
+//Auth::routes();
 
 Route::prefix('blog/admin')->group(function () {
     Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');

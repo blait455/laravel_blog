@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/compiled/fa-main.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/css/compiled/fa-blog.css') }}"/>
 
+
     <!-- Optimizely code - to be commented out when not in use -->
     <script src="//cdn.optimizely.com/js/1704710245.js" async></script>
     <!-- GA code to switch to on live is UA-217484-2 for seo-->
