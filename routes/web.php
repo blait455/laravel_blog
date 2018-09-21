@@ -4,7 +4,7 @@ Route::get('/blog', 'Post\PostController@index')->name('home');
 Route::get('/blog/', 'Post\PostController@index')->name('home');
 
 Route::prefix('blog')->group(function () {
-    Route::get('{post}', 'Post\PostControlroler@show')->name('blog.show');
+    Route::get('{post}', 'Post\PostController@show')->name('blog.show');
     Route::get('category/{category}', 'Category\CategoryController@index')->name('category');
     Route::get('author/{author}', 'Author\AuthorController@index')->name('author');
 });
