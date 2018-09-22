@@ -86,7 +86,7 @@ class UserController extends BackendBaseController
         $user->attachRole($request->role);
         return redirect(route('user.index'))->with('message', 'User details has been updated successfully!');
     }
-
+ 
     /**
      * Remove the specified user from storage.
      *
