@@ -5,10 +5,25 @@ namespace App\Http\Controllers\Backend\FrontendPageSEO;
 use App\Http\Controllers\Backend\BackendBaseController\BackendBaseController;
 use App\Models\Seo;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 
 class FrontendPageSEOController extends BackendBaseController
 {
+    protected $uploadPath;
+    protected $thumbnailImageHeight;
+    protected $thumbnailImageWeight;
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->uploadPath = public_path('images_blog/seo');
+        $this->thumbnailImageHeight = 170;
+        $this->thumbnailImageWeight = 250;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +40,9 @@ class FrontendPageSEOController extends BackendBaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Seo $seo)
     {
-        //
+        return view('backend.frontendPageSeo.create', compact('seo'));
     }
 
     /**
@@ -38,7 +53,16 @@ class FrontendPageSEOController extends BackendBaseController
      */
     public function store(Request $request)
     {
-        //
+        $this->checkboxValueChange($request);
+        $postData = Seo::create($request->all());
+
+        $post = Seo::findOrFail($postData->id);
+        $data = $this->handleRequest($request, $postData->id);
+
+        $post->image = $data['image'];
+        $post->save();
+
+        return redirect(route('seo.index'))->with('message', 'Your page has been created!');
     }
 
     /**
@@ -73,9 +97,18 @@ class FrontendPageSEOController extends BackendBaseController
      */
     public function update(Request $request, $id)
     {
+        $seo = Seo::findOrFail($id);
         $this->checkboxValueChange($request);
-        Seo::findOrFail($id)->update($request->all());
-        return redirect(route('seo.index'))->with("message", "{$request->title} page seo details has been updated successfully!");
+        // checking if image has been changed
+        if($request->hasFile('image')){
+            $this->pageImageRemove($id);
+            $data = $this->handleRequest($request, $id);
+            $seo->update($data);
+        }else{
+            $data = $request->all();
+            $seo->update($data);
+        }
+        return redirect(route('seo.index'))->with('message', 'Your page has been updated!');
     }
 
     /**
@@ -121,4 +154,58 @@ class FrontendPageSEOController extends BackendBaseController
         }
         return $request;
     }
+
+
+    /**
+     * Handle Image while creating Page, create a thumbnail image and create them inside a folder named by post id
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    private function handleRequest($request, $id)
+    {
+        $data = $request->all();
+        if($request->hasFile('image'))
+        {
+            $image = $request->file('image');   //take
+            $extension = $image->getClientOriginalExtension();
+            $newImageName = time().'.'.$extension;
+            $destination = $this->uploadPath.'/'.$id;
+            $successUpload = $image->move($destination, $newImageName);  //take
+
+            // if the image uploaded successfully then make the thumbnail
+            if($successUpload){
+
+                $thumbnail = str_replace(".{$extension}", "_thumb.{$extension}", $newImageName);
+                Image::make($destination.'/'.$newImageName)
+                    ->resize($this->thumbnailImageWeight,$this->thumbnailImageHeight)
+                    ->save($destination.'/'.$thumbnail);
+            }
+
+            $data['image'] = $newImageName;
+        }else{
+            $data['image'] = null;
+        }
+        return $data;
+    }
+
+    /**
+     * Delete images related to Page id
+     * @param $pageId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    private function pageImageRemove($pageId)
+    {
+        $dir = $this->uploadPath.DIRECTORY_SEPARATOR.$pageId;
+        if(is_dir($dir)) {
+            $contents = scandir($dir);
+            unset($contents[0], $contents[1]);
+            foreach ($contents as $content)
+            {
+                unlink($dir.DIRECTORY_SEPARATOR.$content);
+            }
+            rmdir($dir);
+        }
+    }
+
 }

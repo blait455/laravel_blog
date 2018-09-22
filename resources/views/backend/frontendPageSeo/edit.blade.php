@@ -8,8 +8,8 @@
     <div class="content-wrapper" xmlns="http://www.w3.org/1999/html">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1> Blog
-                <small>Edit Post</small>
+            <h1> Page
+                <small>Edit Page</small>
             </h1>
 
             <ol class="breadcrumb">
@@ -17,10 +17,10 @@
                     <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a>
                 </li>
                 <li>
-                    <a href="{{ route('article.index') }}"><i class="fa fa-list"></i> Blog </a>
+                    <a href="{{ route('seo.index') }}"><i class="fa fa-list"></i> Page </a>
                 </li>
                 <li class="active">
-                    Edit Post
+                    Edit Page
                 </li>
             </ol>
         </section>
