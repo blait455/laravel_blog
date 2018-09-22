@@ -27,6 +27,9 @@ $this->post('blog/admin/password/reset', 'Auth\ResetPasswordController@reset');
 Route::prefix('blog/admin')->group(function () {
 
     Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');
+    Route::get('/edit-account', 'Backend\Home\HomeController@edit')->name('admin.account.edit');
+    Route::put('/edit-account', 'Backend\Home\HomeController@update')->name('admin.account.update');
+
     Route::resource('article', 'Backend\Blog\BlogController');
     Route::put('article/restore/{article}', 'Backend\Blog\BlogController@restore')->name('admin.article.restore');
     Route::delete('article/force-destroy/{article}', 'Backend\Blog\BlogController@forceDestroy')->name('admin.article.force-destroy');

@@ -29,8 +29,8 @@
             </div>
             <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
                 {!! Form::label('role') !!}
-                @if($user->exists && $user->id ==config('cms.default_user_id'))
-                    <p class="form-control-static"><b>You cannot change Super {{ $user->roles->first()->display_name }} Role</b></p>
+                @if($user->exists && ($user->id ==config('cms.default_user_id')) || isset($hideRoleDropdown))
+                    <p class="form-control-static"><b>Your Role is : {{ $user->roles->first()->display_name }}</b></p>
                     {!! Form::hidden('role', $user->roles->first()->id) !!}
                 @else
                     {!! Form::select('role', \App\Models\Role::pluck('display_name', 'id'), $user->exists ? $user->roles->first()->id : null, ['class' => 'form-control', 'placeholder' => 'Chose a role for the new user']) !!}
@@ -40,7 +40,6 @@
             <div class="form-group {{ $errors->has('bio') ? 'has-error' : '' }}">
                 {!! Form::label('bio') !!}
                 {!! Form::textarea('bio', null, ['class' => 'form-control']) !!}
-                @if($errors->has('bio')) <span class="help-block">{{$errors->first('bio')}}</span> @endif
             </div>
 
         </div>
