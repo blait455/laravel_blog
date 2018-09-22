@@ -45,7 +45,11 @@ class BlogController extends BackendBaseController
         }elseif($status == 'draft')
         {
             $posts = Post::draft()->with('category', 'author')->latest()->paginate($this->pageLimit);
-        }elseif($status == 'featured')
+        }elseif($status == 'own')
+        {
+            $posts = request()->user()->posts()->with('category', 'author')->latest()->paginate($this->pageLimit);
+        }
+        elseif($status == 'featured')
         {
             $posts = Post::featured()->with('category', 'author')->latest()->paginate($this->pageLimit);
         }else{

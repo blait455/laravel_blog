@@ -35,18 +35,24 @@
                     <li><a href="{{ route('article.index') }}?status=published"><i class="fa fa-book"></i> Published</a></li>
                     <li><a href="{{ route('article.index') }}?status=scheduled"><i class="fa fa-anchor"></i> Scheduled</a></li>
                     <li><a href="{{ route('article.index') }}?status=draft"><i class="fa fa-dropbox"></i> Draft</a></li>
+                    <li><a href="{{ route('article.index') }}?status=own"><i class="fa fa-mercury"></i> Own Posts</a></li>
                     <li><a href="{{ route('article.index') }}?status=featured"><i class="fa fa-star"></i> Featured</a></li>
+
                 </ul>
             </li>
 
             @role(['admin', 'editor'])
+            @if(check_user_permissions(request(), "Category@index"))
             <li><a href="{{ route('category.index') }}"><i class="fa fa-life-buoy"></i> <span>Categories</span></a></li>
+            @endif
             @endrole
+
             @role(['admin', 'editor'])
             <li><a href="{{ route('seo.index') }}"><i class="fa fa-life-buoy"></i> <span>Frontend SEO</span></a></li>
             @endrole
 
             @role(['admin'])
+            @if(check_user_permissions(request(), "User@index"))
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -60,6 +66,7 @@
                     <li><a href="{{ route('user.create') }}"><i class="fa fa-user-plus"></i> Create User</a></li>
                 </ul>
             </li>
+            @endif
             @endrole
         </ul>
     </section>

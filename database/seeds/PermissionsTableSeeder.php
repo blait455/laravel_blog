@@ -41,8 +41,8 @@ class PermissionsTableSeeder extends Seeder
 
         // attach permissions to the roles
         $admin = \App\Models\Role::whereName('admin')->first();
-        $editor = \App\Models\Role::whereName('admin')->first();
-        $author = \App\Models\Role::whereName('admin')->first();
+        $editor = \App\Models\Role::whereName('editor')->first();
+        $author = \App\Models\Role::whereName('author')->first();
 
         $admin->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);
         $admin->attachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);

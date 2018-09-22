@@ -33,6 +33,9 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
+                            <div class="pull-left">
+                                <a id="add-button" title="Add New" class="btn btn-success" href="{{ route('user.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                            </div>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive">

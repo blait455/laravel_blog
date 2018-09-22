@@ -9,17 +9,19 @@
     </tr>
     </thead>
     <tbody>
-
     @foreach($posts as $post)
         <tr>
             <td width="70">
                 {!! Form::open([ 'method' => 'DELETE',  'route' => ['article.destroy', $post->id]]) !!}
-                <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('article.edit',  $post->id) }}">
-                    <i class="fa fa-edit"></i>
-                </a>
-                <button type="submit" class="btn btn-xs btn-danger delete-row">
-                    <i class="fa fa-times"></i>
-                </button>
+
+                    <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{ route('article.edit',  $post->id) }}">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <button type="submit" class="btn btn-xs btn-danger delete-row">
+                        <i class="fa fa-times"></i>
+                    </button>
+
                 {!! Form::close() !!}
             </td>
             <td>{{ $post->title }}</td>

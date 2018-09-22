@@ -44,7 +44,8 @@ class UserController extends BackendBaseController
     public function store(UserStoreRequest $request)
     {
         $request['password'] = bcrypt($request->password);
-        User::create($request->all());
+        $user = User::create($request->all());
+        $user->attachRole($request->role);
         return redirect(route('user.index'))->with('message', 'New user has been created!');
     }
 
@@ -73,10 +74,16 @@ class UserController extends BackendBaseController
         if($request->password != null)
         {
             $request['password'] = bcrypt($request->password);
-            User::findOrFail($id)->update($request->all());
+            $user = User::findOrFail($id);
+            $user->update($request->all());
+            $user->detachRoles();
+            $user->attachRole($request->role);
             return redirect(route('user.index'))->with('message', 'User details has been updated successfully!');
         }
-        User::findOrFail($id)->update($request->only('name', 'slug', 'email', 'bio'));
+        $user = User::findOrFail($id);
+        $user->update($request->only('name', 'slug', 'email', 'bio'));
+        $user->detachRoles();
+        $user->attachRole($request->role);
         return redirect(route('user.index'))->with('message', 'User details has been updated successfully!');
     }
 
@@ -110,6 +117,7 @@ class UserController extends BackendBaseController
         elseif($deleteOption == "attribute")
         {
             $user->posts()->update(['author_id' => $selectdUser]);
+            $user->delete();
         }
         return redirect(route('user.index'))->with('message', 'Posts and User Has been successfully deleted.');
     }

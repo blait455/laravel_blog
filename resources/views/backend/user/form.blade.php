@@ -27,6 +27,16 @@
                 {!! Form::password('password_confirmation',  ['class' => 'form-control']) !!}
                 @if($errors->has('password_confirmation')) <span class="help-block">{{$errors->first('password_confirmation')}}</span> @endif
             </div>
+            <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
+                {!! Form::label('role') !!}
+                @if($user->exists && $user->id ==config('cms.default_user_id'))
+                    <p class="form-control-static"><b>You cannot change Super {{ $user->roles->first()->display_name }} Role</b></p>
+                    {!! Form::hidden('role', $user->roles->first()->id) !!}
+                @else
+                    {!! Form::select('role', \App\Models\Role::pluck('display_name', 'id'), $user->exists ? $user->roles->first()->id : null, ['class' => 'form-control', 'placeholder' => 'Chose a role for the new user']) !!}
+                @endif
+                @if($errors->has('role')) <span class="help-block">{{$errors->first('role')}}</span> @endif
+            </div>
             <div class="form-group {{ $errors->has('bio') ? 'has-error' : '' }}">
                 {!! Form::label('bio') !!}
                 {!! Form::textarea('bio', null, ['class' => 'form-control']) !!}
