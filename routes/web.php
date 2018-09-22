@@ -39,4 +39,6 @@ Route::prefix('blog/admin')->group(function () {
     Route::get('user/confirm/{user}', 'Backend\User\UserController@confirm')->name('user.confirm');
 
     Route::resource('seo', 'Backend\FrontendPageSEO\FrontendPageSEOController');
+
+    Route::resource('social', 'Backend\Social\SocialController');
 });

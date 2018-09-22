@@ -9,7 +9,7 @@
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                {{--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
             </div>
         </div>
 
@@ -49,6 +49,10 @@
 
             @role(['admin', 'editor'])
             <li><a href="{{ route('seo.index') }}"><i class="fa fa-life-buoy"></i> <span>Frontend SEO</span></a></li>
+            @endrole
+
+            @role(['admin', 'editor'])
+            <li><a href="{{ route('social.index') }}"><i class="fa fa-life-buoy"></i> <span>Social Links</span></a></li>
             @endrole
 
             @role(['admin'])
