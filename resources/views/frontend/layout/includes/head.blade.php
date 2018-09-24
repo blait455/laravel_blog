@@ -15,12 +15,12 @@
 
     <title>Friday-Ad @yield('titleHeader')</title>
     <meta name="description" content="" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/compiled/main.css') }}"/>
-    <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <link rel="stylesheet" href="https://test.kittenads.co.uk/blog/public/{{ asset('frontend/css/compiled/main.css') }}"/>
+    <script src="https://test.kittenads.co.uk/blog/public/{{ asset('frontend/js/main.js') }}"></script>
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/compiled/home.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('frontend/css/compiled/fa-main.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('frontend/css/compiled/fa-blog.css') }}"/>
+    <link rel="stylesheet" href="https://test.kittenads.co.uk/blog/public/{{ asset('frontend/css/compiled/home.css') }}"/>
+    <link rel="stylesheet" href="https://test.kittenads.co.uk/blog/public/{{ asset('frontend/css/compiled/fa-main.css') }}"/>
+    <link rel="stylesheet" href="https://test.kittenads.co.uk/blog/public/{{ asset('frontend/css/compiled/fa-blog.css') }}"/>
 
 
     <!-- Optimizely code - to be commented out when not in use -->
