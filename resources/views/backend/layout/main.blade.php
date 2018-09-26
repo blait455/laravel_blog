@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title', 'Blog | Admin')</title>
     <!-- Tell the browser to be responsive to screen width -->
+
+    <!-- jQuery 2.2.3 -->
+    {{--<script src="https://test.kittenads.co.uk/blog/public/backend/js/jquery-2.2.3.min.js"></script>--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script defer src="https://test.kittenads.co.uk/blog/public/backend/js/bootstrap.min.js"></script><!-- Bootstrap 3.3.6 -->
+    <script defer src="https://test.kittenads.co.uk/blog/public/backend/plugins/simple-mde/simplemde.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <script defer src="https://test.kittenads.co.uk/blog/public/backend/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script defer  src="https://test.kittenads.co.uk/blog/public/backend/js/app.min.js"></script> <!-- AdminLTE App -->
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="https://test.kittenads.co.uk/blog/public/backend/css/bootstrap.min.css">
@@ -47,19 +60,19 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 2.2.3 -->
-<script src="https://test.kittenads.co.uk/blog/public/backend/js/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="https://test.kittenads.co.uk/blog/public/backend/js/bootstrap.min.js"></script>
-<script src="https://test.kittenads.co.uk/blog/public/backend/plugins/simple-mde/simplemde.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+{{--<!-- jQuery 2.2.3 -->--}}
+{{--<script src="https://test.kittenads.co.uk/blog/public/backend/js/jquery-2.2.3.min.js"></script>--}}
+{{--<!-- Bootstrap 3.3.6 -->--}}
+{{--<script src="https://test.kittenads.co.uk/blog/public/backend/js/bootstrap.min.js"></script>--}}
+{{--<script src="https://test.kittenads.co.uk/blog/public/backend/plugins/simple-mde/simplemde.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>--}}
 
-<script src="https://test.kittenads.co.uk/blog/public/backend/tinymce/js/tinymce/tinymce.min.js"></script>
+{{--<script src="https://test.kittenads.co.uk/blog/public/backend/tinymce/js/tinymce/tinymce.min.js"></script>--}}
 
-<!-- AdminLTE App -->
-<script src="https://test.kittenads.co.uk/blog/public/backend/js/app.min.js"></script>
+{{--<!-- AdminLTE App -->--}}
+{{--<script src="https://test.kittenads.co.uk/blog/public/backend/js/app.min.js"></script>--}}
 @yield('script')
 </body>
 </html>
