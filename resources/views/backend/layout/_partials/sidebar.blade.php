@@ -37,7 +37,7 @@
                     <li><a href="{{ route('article.index') }}?status=draft"><i class="fa fa-dropbox"></i> Draft</a></li>
                     <li><a href="{{ route('article.index') }}?status=own"><i class="fa fa-mercury"></i> Own Posts</a></li>
                     <li><a href="{{ route('article.index') }}?status=featured"><i class="fa fa-star"></i> Featured</a></li>
-
+                    <li><a href="{{ route('article.index') }}?status=special"><i class="fa fa-star"></i> Special Featured</a></li>
                 </ul>
             </li>
 

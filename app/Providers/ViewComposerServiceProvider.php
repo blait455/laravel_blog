@@ -17,6 +17,8 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('frontend.layout.includes._partials._menu', NavigationComposer::class);
         view()->composer('frontend.layout.includes._partials_articles.sidebar', NavigationComposer::class);
         view()->composer('frontend.layout.includes._partials_articles.meta', NavigationComposer::class);
+        view()->composer('frontend.layout.includes._partials._bigFeatured', NavigationComposer::class);
+        view()->composer('frontend.layout.includes._partials._threeBannerFeatured', NavigationComposer::class);
     }
 
     /**

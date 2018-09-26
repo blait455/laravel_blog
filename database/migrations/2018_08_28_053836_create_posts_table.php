@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->string('image_alt')->nullable();
             $table->boolean('featured')->default(false);
+            $table->boolean('special_featured')->default(false);
             $table->timestamps();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
         });

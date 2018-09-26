@@ -31,6 +31,11 @@
                 {!! Form::checkbox('featured', null, ($post->exists) ? $post->featured : false ) !!}
                 <span class="help-block">If chosen it will be under featured image</span>
             </div>
+            <div class="form-group">
+                {!! Form::label('special_featured', 'Special Featured Post') !!}
+                {!! Form::checkbox('special_featured', null, ($post->exists) ? $post->featured : false ) !!}
+                <span class="help-block">If chosen it will be under Main page banner</span>
+            </div>
             <hr><h3><strong>SEO</strong></h3><br>
             <div class="form-group">
                 {!! Form::label('meta_description') !!}
@@ -113,7 +118,7 @@
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
 
-                        <img src="{{ ($post->image) ? asset('images_blog/article').'/'.$post->id.'/'.$post->image : 'http://placehold.it/200x150&text=No+Image'}}" alt="...">
+                        <img src="{{ ($post->image) ? 'https://test.kittenads.co.uk/blog/public/images_blog/article'.'/'.$post->id.'/'.$post->image : 'http://placehold.it/200x150&text=No+Image'}}" alt="...">
 
                     </div>
                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>

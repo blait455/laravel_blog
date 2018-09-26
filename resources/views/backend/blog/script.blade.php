@@ -26,7 +26,7 @@
             e.preventDefault();
             $('#published_at').val("");
             $('#post-form').submit();
-        })
+        });
 
         function clickHandler() {
             document.getElementById("draft").value = true;

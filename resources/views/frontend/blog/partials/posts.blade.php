@@ -4,7 +4,7 @@
             <div class="clearfix">
                 <div>
                     <div class="list-names">
-                        <strong>Guides Animals, Events, News</strong>
+                        <strong><a href="{{ route('category', $post->category->slug) }}">{{ $post->category->title }}</a></strong>
                     </div>
                     <span class="list-hr-ago">
                         {{ $post->date }} | <a href="{{ route('author', $post->author->slug) }}"> {{ $post->author->name }} </a>

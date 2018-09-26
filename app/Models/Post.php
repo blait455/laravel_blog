@@ -11,7 +11,7 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $fillable = ['view_count','title', 'body', 'slug', 'excerpt', 'image', 'image_alt',
-        'featured', 'published_at', 'category_id', 'meta_description', 'canonical_url' , 'redirect_url' , 'no_index' , 'no_follow' , 'top_content'];
+        'featured', 'special_featured', 'published_at', 'category_id', 'meta_description', 'canonical_url' , 'redirect_url' , 'no_index' , 'no_follow' , 'top_content'];
 
     protected $dates = ['published_at'];
     // TODO: load image 009 from user image directory, create an accessor or mutator
@@ -129,6 +129,11 @@ class Post extends Model
     public function scopeFeatured($query)
     {
         return $query->where("featured", "=", '1');
+    }
+
+    public function scopeSpecial($query)
+    {
+        return $query->where("special_featured", "=", '1');
     }
 
     //--------------------------- Relation ---------------------------------------------//

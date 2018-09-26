@@ -15,6 +15,8 @@ class NavigationComposer
         $this->composeCategories($view);
         $this->composePopularPosts($view);
         $this->composeSeoPages($view);
+        $this->composeSingleBanner($view);
+        $this->composeThreeBanner($view);
     }
 
     private function composeCategories(View $view)
@@ -37,4 +39,17 @@ class NavigationComposer
         $pagesSeo = Seo::all();
         $view->with('pagesSeo', $pagesSeo);
     }
+
+    private function composeSingleBanner(View $view)
+    {
+        $singleBanner = Post::special()->inRandomOrder()->take(1)->get();
+        $view->with('singleBanner', $singleBanner);
+    }
+
+    private function composeThreeBanner(View $view)
+    {
+        $threeBanner = Post::featured()->inRandomOrder()->take(3)->get();
+        $view->with('threeBanner', $threeBanner);
+    }
+
 }

@@ -52,7 +52,12 @@ class BlogController extends BackendBaseController
         elseif($status == 'featured')
         {
             $posts = Post::featured()->with('category', 'author')->latest()->paginate($this->pageLimit);
-        }else{
+        }
+        elseif($status == 'special')
+        {
+            $posts = Post::special()->with('category', 'author')->latest()->paginate($this->pageLimit);
+        }
+        else{
             $posts = Post::with('category', 'author')->latest()->paginate($this->pageLimit);
         }
         return view('backend.blog.index', compact('posts', 'onlyTrashed', 'status'));
@@ -122,9 +127,8 @@ class BlogController extends BackendBaseController
             $post->update($data);
         }else{
             $data = $request->all();
-            $post->update($data);
+            $data = $post->update($data);
         }
-
         return redirect(route('article.index'))->with('message', 'Your post has been created!');
     }
 
@@ -220,6 +224,13 @@ class BlogController extends BackendBaseController
            $request['featured'] = true;
         } else {
             $request->request->add(['featured' => false]);
+        }
+
+        // change featured
+        if($request->has('special_featured')){
+            $request['special_featured'] = true;
+        } else {
+            $request->request->add(['special_featured' => false]);
         }
 
         // change no_index

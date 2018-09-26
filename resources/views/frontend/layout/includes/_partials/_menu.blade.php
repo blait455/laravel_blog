@@ -9,7 +9,7 @@
                             <ul class="title-area">
                                 <li class="name">
                                     <h1>
-                                        <a href="/" class="logo">
+                                        <a href="https://test.kittenads.co.uk/blog/" class="logo">
                                             {{--<img src="images/FADblog_logo.svg" alt="Friday-Ad">--}}
                                             <img src="{{ URL::asset('frontend/images/FADblog_logo.svg') }}">
                                         </a>

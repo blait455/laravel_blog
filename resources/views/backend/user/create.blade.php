@@ -32,7 +32,8 @@
                           'method' => 'POST',
                           'route'  => 'user.store',
                           'files'  => true,
-                          'id'     => 'user-form'
+                          'id'     => 'user-form',
+                          'autocomplete' => 'off'
                       ]) !!}
 
                 @include('backend.user.form')
