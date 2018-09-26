@@ -9,12 +9,13 @@ Route::prefix('blog')->group(function () {
     Route::get('author/{author}', 'Author\AuthorController@index')->name('author');
 });
 
+
 $this->get('blog/admin/login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('blog/admin/login', 'Auth\LoginController@login');
 $this->post('blog/admin/logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-$this->get('ablog/dmin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->get('blog/admin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 $this->post('blog/admin/register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...

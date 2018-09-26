@@ -127,9 +127,9 @@ class BlogController extends BackendBaseController
             $post->update($data);
         }else{
             $data = $request->all();
-            $data = $post->update($data);
+            $post->update($data);
         }
-        return redirect(route('article.index'))->with('message', 'Your post has been created!');
+        return redirect(route('article.index'))->with('message', 'Your post has been updated!');
     }
 
 

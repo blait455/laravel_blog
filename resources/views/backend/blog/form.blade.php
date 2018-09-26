@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('special_featured', 'Special Featured Post') !!}
-                {!! Form::checkbox('special_featured', null, ($post->exists) ? $post->featured : false ) !!}
+                {!! Form::checkbox('special_featured', null, ($post->exists) ? $post->special_featured : false ) !!}
                 <span class="help-block">If chosen it will be under Main page banner</span>
             </div>
             <hr><h3><strong>SEO</strong></h3><br>
