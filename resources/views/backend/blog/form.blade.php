@@ -117,8 +117,8 @@
             <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-
-                        <img src="{{ ($post->image) ? {{ config('cms.asset_path') }}'/images_blog/article'.'/'.$post->id.'/'.$post->image : 'http://placehold.it/200x150&text=No+Image'}}" alt="...">
+                        @php $path = config('cms.asset_path')  @endphp
+                        <img src="{{ ($post->image) ? $path.'/images_blog/article'.'/'.$post->id.'/'.$post->image : 'http://placehold.it/200x150&text=No+Image'}}" alt="...">
 
                     </div>
                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
