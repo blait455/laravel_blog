@@ -159,7 +159,7 @@ class BlogController extends BackendBaseController
         if($data) {
             $this->articleImageRemove($id);
         }
-        return redirect('admin/article?status=trash')->with('message', 'Your post has been deleted permanently');
+        return redirect('blog/admin/article?status=trash')->with('message', 'Your post has been deleted permanently');
     }
 
 
