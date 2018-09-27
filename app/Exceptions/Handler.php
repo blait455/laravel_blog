@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
         if($exception instanceof \ErrorException){
             $statusCode = 404;
             $statusMessage = "Does not exists any such page";
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
@@ -66,7 +66,7 @@ class Handler extends ExceptionHandler
             $statusCode = 404;
             $modelName = strtolower(class_basename($exception->getModel()));
             $statusMessage = "Does not exists any {$modelName} with the specified identificator";
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
@@ -79,7 +79,7 @@ class Handler extends ExceptionHandler
         {
             $statusCode = $exception->getStatusCode($exception);
             $statusMessage = $exception->getMessage();
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
@@ -92,7 +92,7 @@ class Handler extends ExceptionHandler
         {
             $statusCode = $exception->getStatusCode($exception);
             $statusMessage = "This specified method for the request is invalid";
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
@@ -105,7 +105,7 @@ class Handler extends ExceptionHandler
         {
             $statusCode = $exception->getStatusCode($exception);
             $statusMessage = "This specified url cannot be found.";
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
@@ -118,7 +118,7 @@ class Handler extends ExceptionHandler
         {
             $statusCode = $exception->getStatusCode($exception);
             $statusMessage = "This specified method for the request is invalid";
-            if($request->is('admin/*'))
+            if($request->is('blog/admin/*'))
             {
                 return response()->view('customErrors.404Backend', compact('statusCode', 'statusMessage'), 404);
             }
