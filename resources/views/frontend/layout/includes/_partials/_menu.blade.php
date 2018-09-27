@@ -10,7 +10,7 @@
                                 <li class="name">
                                     <h1>
                                         <a href="https://test.kittenads.co.uk/blog/" class="logo">
-                                            <img src="https://test.kittenads.co.uk/blog/public/frontend/images/FADblog_logo.svg" alt="Friday-Ad">
+                                            <img src="{{ config('cms.asset_path') }}/frontend/images/FADblog_logo.svg" alt="Friday-Ad">
                                         </a>
                                     </h1>
                                 </li>
@@ -50,7 +50,7 @@
 
                                 <ul class="right">
                                     <li class="place-item-btn show-for-small-only"><a href="/paa/first_step" title="Place an ad" class="placead mobile-paa-btn">Place an ad</a></li>
-                                    <li class="mob-fad-logo"><a title="" class="p-r-0"><img src="https://test.kittenads.co.uk/blog/public/frontend/images/FAD.co.uk_logo.png"></a></li>
+                                    <li class="mob-fad-logo"><a title="" class="p-r-0"><img src="{{ config('cms.asset_path') }}/frontend/images/FAD.co.uk_logo.png"></a></li>
                                 </ul>
                             </section>
 

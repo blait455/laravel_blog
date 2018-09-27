@@ -31,7 +31,7 @@
         <div class="clearfix border-line-b"></div>
         {{--<div class="clearfix p-b-10 m-b-10"></div>--}}
         @if(isset($post->image))
-            <img src="https://test.kittenads.co.uk/blog/public/images_blog/article/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">
+            <img src="{{ config('cms.asset_path') }}/images_blog/article/{{ $post->id }}/{{ $post->image }}" alt="{{ $post->image_alt }}">
         @endif
         {{--<p> {!! $post->body_html  !!} </p>--}}
         <p> {!! $post->body !!} </p>

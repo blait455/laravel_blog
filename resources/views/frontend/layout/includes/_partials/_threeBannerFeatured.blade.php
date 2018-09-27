@@ -12,7 +12,7 @@
                 <div class="small-10 medium-24 large-24 columns p-l-0 p-r-0">
                     <div class="clearfix">
                         @if(isset($banner->image))
-                            <img src="https://test.kittenads.co.uk/blog/public/images_blog/article/{{ $banner->id }}/{{ $banner->image }}" alt="{{ $banner->image_alt }}">
+                            <img src="{{ config('cms.asset_path') }}/images_blog/article/{{ $banner->id }}/{{ $banner->image }}" alt="{{ $banner->image_alt }}">
                         @endif
                         {{--<img data-interchange="[http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg, (small)], [http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg, (medium)], [http://themes.wplook.com/html/charity/assets/images/temp/sponsor-image.jpg, (large)]" class="img-responsive">--}}
                     </div>

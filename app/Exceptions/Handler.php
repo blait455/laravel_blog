@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-/*
+
         if($exception instanceof \ErrorException){
             $statusCode = 404;
             $statusMessage = "Does not exists any such page";
@@ -124,7 +124,7 @@ class Handler extends ExceptionHandler
             }
             return response()->view('customErrors.404Frontend', compact('statusCode', 'statusMessage'), 404);
         }
-        */
+
         return parent::render($request, $exception);
     }
 

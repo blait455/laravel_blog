@@ -25,6 +25,7 @@ $this->get('blog/admin/password/reset/{token}', 'Auth\ResetPasswordController@sh
 $this->post('blog/admin/password/reset', 'Auth\ResetPasswordController@reset');
 
 //Auth::routes();
+
 Route::prefix('blog/admin')->group(function () {
 
     Route::get('home', 'Backend\Home\HomeController@index')->name('admin.home');
