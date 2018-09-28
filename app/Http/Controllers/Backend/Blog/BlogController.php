@@ -209,8 +209,11 @@ class BlogController extends BackendBaseController
     private function checkboxValueChange(Request $request)
     {
         // change featured if pressed published
+        $today   = new \DateTime;
         if($request['published_at'] == null){
-            $today   = new \DateTime;
+            $request['published_at'] = $today->format('Y-m-d H:i:s');
+        }elseif ($request['published_at'] == $today->format('Y-m-d H:i:s'))
+        {
             $request['published_at'] = $today->format('Y-m-d H:i:s');
         }
 
