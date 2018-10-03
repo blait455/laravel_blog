@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Base\BaseController;
 use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 
 class CategoryController extends BaseController
 {
@@ -22,11 +20,18 @@ class CategoryController extends BaseController
 
         $posts = $category->posts()
                           ->with('author')
+                          ->where([
+                              ['site_address_id', '=', $this->determineUrl()],
+                              ['featured', '!=', '1'],
+                              ['special_featured', '!=', '1']
+                          ])
                           ->latestFirst()
                           ->published()
                           ->paginate(3);
         return view('frontend.blog.category', compact('posts', 'categoryName'));
         //dd(\DB::getQueryLog());
     }
+
+
 
 }
