@@ -111,6 +111,18 @@
 
     <div class="box">
         <div class="box-header with-border">
+            <h3 class="box-title">SIte Address</h3>
+        </div>
+        <div class="box-body">
+            <div class="form-group {{ $errors->has('site_address_id') ? 'has-error' : '' }}">
+                {!! Form::select('site_address_id', \App\Models\SiteAddress::pluck('name', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Choose category']) !!}
+                @if($errors->has('site_address_id')) <span class="help-block">{{$errors->first('site_address_id')}}</span> @endif
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-header with-border">
             <h3 class="box-title">Featured Image</h3>
         </div>
         <div class="box-body text-center">

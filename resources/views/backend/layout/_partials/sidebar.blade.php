@@ -48,6 +48,10 @@
             @endrole
 
             @role(['admin', 'editor'])
+                <li><a href="{{ route('site-address.index') }}"><i class="fa fa-life-buoy"></i> <span>Site Address</span></a></li>
+            @endrole
+
+            @role(['admin', 'editor'])
             <li><a href="{{ route('seo.index') }}"><i class="fa fa-life-buoy"></i> <span>Frontend SEO</span></a></li>
             @endrole
 

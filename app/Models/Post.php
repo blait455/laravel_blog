@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['view_count','title', 'body', 'slug', 'excerpt', 'image', 'image_alt',
+    protected $fillable = ['view_count','title', 'body', 'slug', 'excerpt', 'image', 'image_alt', 'site_address_id',
         'featured', 'special_featured', 'published_at', 'category_id', 'meta_description', 'canonical_url' , 'redirect_url' , 'no_index' , 'no_follow' , 'top_content'];
 
     protected $dates = ['published_at'];
@@ -146,6 +146,11 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function address()
+    {
+        return $this->belongsTo(SiteAddress::class);
     }
 
 }

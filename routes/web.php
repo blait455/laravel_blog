@@ -43,4 +43,6 @@ Route::prefix('blog/admin')->group(function () {
     Route::resource('seo', 'Backend\FrontendPageSEO\FrontendPageSEOController');
 
     Route::resource('social', 'Backend\Social\SocialController');
+
+    Route::resource('site-address', 'Backend\SiteAddress\SiteAddressController');
 });

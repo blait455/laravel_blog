@@ -36,6 +36,7 @@ class PostsTableSeeder extends Seeder
                 'updated_at'    => $date,
                 'published_at'  => rand(1, 0) == 0 ? null : $dates->addDays($i),
                 'category_id'   => rand(1, 7),
+                'site_address_id'   => rand(1, 3),
                 'view_count'   => rand(1, 10) * 10
             ];
         }

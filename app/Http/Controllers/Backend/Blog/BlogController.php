@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend\Blog;
 use App\Http\Controllers\Backend\BackendBaseController\BackendBaseController;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\SiteAddress;
 use Illuminate\Http\Request;
+use Illuminate\Routing\UrlGenerator;
 use Intervention\Image\Facades\Image;
 
 class BlogController extends BackendBaseController
@@ -14,13 +16,16 @@ class BlogController extends BackendBaseController
     protected $thumbnailImageHeight;
     protected $thumbnailImageWeight;
 
+    protected $url;
 
-    public function __construct()
+
+    public function __construct(UrlGenerator $url)
     {
         parent::__construct();
         $this->uploadPath = public_path('images_blog/article');
         $this->thumbnailImageHeight = 170;
         $this->thumbnailImageWeight = 250;
+        $this->url = $url;
     }
 
 
@@ -31,34 +36,35 @@ class BlogController extends BackendBaseController
      */
     public function index(Request $request)
     {
+
         $onlyTrashed = FALSE;
         if(($status = $request->get('status')) && $status == 'trash')
         {
-            $posts = Post::onlyTrashed()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::onlyTrashed()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
             $onlyTrashed = TRUE;
         }elseif($status == 'published')
         {
-            $posts = Post::published()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::published()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }elseif($status == 'scheduled')
         {
-            $posts = Post::scheduled()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::scheduled()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }elseif($status == 'draft')
         {
-            $posts = Post::draft()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::draft()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }elseif($status == 'own')
         {
-            $posts = request()->user()->posts()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = request()->user()->posts()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }
         elseif($status == 'featured')
         {
-            $posts = Post::featured()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::featured()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }
         elseif($status == 'special')
         {
-            $posts = Post::special()->with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::special()->with('category', 'author')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }
         else{
-            $posts = Post::with('category', 'author')->latest()->paginate($this->pageLimit);
+            $posts = Post::with('category', 'author', 'address')->where('site_address_id', '=', $this->determineUrl())->latest()->paginate($this->pageLimit);
         }
         return view('backend.blog.index', compact('posts', 'onlyTrashed', 'status'));
     }
@@ -164,6 +170,24 @@ class BlogController extends BackendBaseController
 
 
     //--------------------------------------- Custom Methods ----------------------------------------------------------//
+
+    /**
+     * * Fetching the Url address for the site and returning the id
+     * @return SiteAddress[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Query\Builder[]|\Illuminate\Support\Collection
+     */
+    private function determineUrl()
+    {
+        $path = $this->url->to('/');
+        $siteAddress = SiteAddress::where('address', $path)->take(1)->get();
+
+        // check if the id is a number or not
+        if(is_numeric($siteAddress[0]->id))
+        {
+            return $siteAddress[0]->id;
+        }
+        return null;
+    }
+
 
     /**
      * Delete images related to article id

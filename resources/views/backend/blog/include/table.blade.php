@@ -3,6 +3,7 @@
     <tr>
         <th>Action</th>
         <th>Title</th>
+        <th>View Count</th>
         <th>Author</th>
         <th>Category</th>
         <th>Date</th>
@@ -25,6 +26,7 @@
                 {!! Form::close() !!}
             </td>
             <td>{{ $post->title }}</td>
+            <td>{{ $post->view_count }}</td>
             <td>{{ $post->author->name }}</td>
             <td>{{ $post->category->title }}</td>
             <td><abbr title="{{ $post->dateFormatted(true) }}">{{ $post->dateFormatted() }}</abbr> | {!! $post->publicationLable() !!} </td>
