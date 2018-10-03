@@ -9,7 +9,7 @@ use App\Models\Post;
 class PostController extends BaseController
 {
 
- 
+
     public function index()
     {
         //\DB::enableQueryLog();

@@ -3,6 +3,24 @@
 
 ##Setting up for production
 
+Please create a user with ID: 1 <br />
+Please create a category named Unauthorized with ID: 1
+
+Or simply run the `php artisan db seed` command <br />
+You can edit it in the `database/seeds/` folder, cange the values and then run `db:seed`. <br/>
+
+
+Or just do this in `database/seeds/DatabaseSeeder.php`<br />
+           
+          `$this->call(UsersTableSeeder::class);` 
+          `$this->call(SiteAddressesTableSeeder::class);`
+          `//$this->call(PostsTableSeeder::class);` 
+          `$this->call(CategoriesTableSeeder::class);` 
+          `$this->call(SeosTableSeeder::class);`
+          `$this->call(RolesTableSeeder::class);`
+          `$this->call(PermissionsTableSeeder::class);`
+          `//$this->call(SocialsTableSeeder::class);`
+
 #####Change your .env file <br />
  After running ` git pull ` from bitbucket, create a `.env` file set you `.env` file like this. 
  There will be a `.env.example` file in there for reference, can use that or use the description below.
